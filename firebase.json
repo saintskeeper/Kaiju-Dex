@@ -6,22 +6,26 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "ssrkaijudex"
+      }
+    ],
     "frameworksBackend": {
       "region": "us-central1"
     }
   },
-  "functions": {
-    "source": ".",
-    "predeploy": [
-      "npm --prefix . run build"
-    ],
-    "runtime": "nodejs18"
-  },
-  "storage": {
-    "rules": "storage.rules",
-    "bucket": "gs://kaiju-dex.appspot.com"
-  },
-  "engines": {
-    "node": "18"
-  }
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
+    }
+  ]
 }
