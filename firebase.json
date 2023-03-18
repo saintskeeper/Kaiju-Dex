@@ -1,0 +1,30 @@
+{
+  "hosting": {
+    "public": "public/",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "cleanurls": true,
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "nextjs-server"
+      }
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
+  },
+  "functions": {
+    "source": ".",
+    "predeploy": [
+      "npm --prefix . run build"
+    ],
+    "runtime": "nodejs18"
+  },
+  "storage": {
+    "rules": "storage.rules",
+    "bucket": "gs://kaiju-dex.appspot.com"
+  },
+  "engines": {
+    "node": "18"
+  }
+}
