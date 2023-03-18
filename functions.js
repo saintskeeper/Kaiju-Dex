@@ -1,7 +1,7 @@
 const admin = require("firebase-admin");
 const functions = require("firebase-functions");
 const next = require("next");
-const config = require("./next.config");
+const config = require("./next.config.js");
 
 
 admin.initializeApp();
