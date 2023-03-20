@@ -1,10 +1,9 @@
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
 import Image from "next/image";
 import { PersonFill, Wallet } from "styled-icons/bootstrap";
 import { SearchAlt } from "styled-icons/boxicons-regular";
-import { Profile } from "styled-icons/icomoon";
 import { CatchingPokemon, Settings } from "styled-icons/material-twotone";
-import { Wallet2 } from "styled-icons/remix-fill";
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +17,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="bg-[#202124] w-full h-screen text-white p-5 space-y-5">
-        <div className="flex space-x-3">
+        <div className="flex space-x-3 place-items-center">
           <div className="w-[20rem] bg-[#2e3031] h-8 rounded-full py-1 px-3 mr-auto flex">
             <SearchAlt className="w-5 my-auto" />
             <input
@@ -27,15 +26,11 @@ const Home: NextPage = () => {
               className="w-[85%] mx-auto flex bg-transparent border-none outline-none font-sans text-sm"
             ></input>
           </div>
-          <div className="bg-[#2e3031] h-8 w-8 rounded-full flex hover:cursor-pointer hover:bg-[#3e4141] duration-200">
-            <PersonFill className="w-5 mx-auto my-auto" />
-          </div>
-          <div className="bg-[#2e3031] h-8 w-8 rounded-full flex hover:cursor-pointer hover:bg-[#3e4141] duration-200">
-            <Wallet2 className="w-5 mx-auto my-auto" />
-          </div>
-          <div className="bg-[#2e3031] h-8 w-8 rounded-full flex hover:cursor-pointer hover:bg-[#3e4141] duration-200">
+
+          <div className="bg-[#2e3031] hover:scale-110 h-8 w-8 rounded-full flex hover:cursor-pointer hover:bg-[#3e4141] duration-200">
             <Settings className="w-5 mx-auto my-auto" />
           </div>
+          <ConnectButton />
         </div>
         <div className="bg-[#2e3031] rounded-lg p-3 flex-col space-y-5">
           <div>
