@@ -38,6 +38,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+      <div className="bg-[#2e3031] rounded-lg p-3 flex-col space-y-5 font-bold font-mono"></div>
     </>
   );
 };

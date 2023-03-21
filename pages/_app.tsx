@@ -14,7 +14,11 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import { PersonFill } from "styled-icons/bootstrap";
 import { SearchAlt } from "styled-icons/boxicons-regular";
-import { CatchingPokemon, Settings } from "styled-icons/material-twotone";
+import {
+  CatchingPokemon,
+  Explore,
+  Settings,
+} from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
@@ -62,14 +66,18 @@ function MyApp({ Component, pageProps }: AppProps) {
         >
           <div className="place-items-center max-w-[1400px] mx-auto">
             <div className="flex">
-              <div className="bg-[#2e3031] w-[300px] hidden md:flex h-screen text-white p-5 place-content-center">
-                <div className="flex space-x-2 mb-auto">
+              <div className="bg-[#202124] border border-l-0 border-y-0 border-[#1d1e20] w-[300px] hidden md:flex md:flex-col h-screen text-white p-5 space-y-5">
+                <div className="flex space-x-2 mb-10">
                   <CatchingPokemon className="w-7 animate-spin" />
                   <Link href="/">
                     <h1 className="font-mono text-2xl font-bold tracking-wider hover:scale-105 cursor-pointer active:scale-95 duration-100">
                       KAIJUDEX
                     </h1>
                   </Link>
+                </div>
+                <div className="font-sans font-bold flex space-x-2 place-content-center mx-auto py-3 px-5 w-full bg-[#1A1B1F] cursor-pointer duration-100 rounded-full">
+                  <Explore className="w-5" />
+                  <h1 className="">Explore</h1>
                 </div>
               </div>
               <div className="bg-[#202124] w-full h-screen text-white p-5 space-y-5">
