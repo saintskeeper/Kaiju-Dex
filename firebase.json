@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "source": ".",
+    "public": "pages",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,7 +9,7 @@
     "rewrites": [
       {
         "source": "**",
-        "function": "ssrkaijudex"
+        "function": "us-central1-nextjs-server"
       }
     ],
     "frameworksBackend": {
@@ -18,14 +18,27 @@
   },
   "functions": [
     {
-      "source": "functions",
-      "codebase": "default",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
+      "source": ".",
+      "runtime": "nodejs18",
+
+      "predeploy": [
+        "npm --prefix .  run build"
       ]
     }
-  ]
+  ],
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "hosting": {
+      "port": 5002
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  }
 }
