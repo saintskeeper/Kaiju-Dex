@@ -36,3 +36,6 @@ yarn-error.log*
 next-env.d.ts
 .firebase/
 package-lock.json
+node_modules/*
+functions/node_modules/*
+firebase-debug.log
