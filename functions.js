@@ -1,7 +1,10 @@
 const admin = require("firebase-admin");
 const functions = require("firebase-functions");
+//const functions = require('firebase-functions/v2');
 const next = require("next");
 const config = require("./next.config.js");
+// import from a specific subpackage
+//const {onRequest} = require('firebase-functions/v2/https');
 
 
 admin.initializeApp();
