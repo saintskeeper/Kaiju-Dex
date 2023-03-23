@@ -9,6 +9,26 @@ const config = require("./next.config.js");
 
 admin.initializeApp();
 
+//exports.getCustomToken = functions.https.onCall(async (data, context) => {
+//  const { ethereumAddress, signature } = data;
+//  const message = `Sign this message to authenticate with your Ethereum address ${ethereumAddress}`;
+//
+//  // Verify the signature using the Ethereum address
+// we will need a web3 provider for this probably alchemy
+//  const web3 = new Web3(/* Your provider URL here */);
+//  const recoveredAddress = await web3.eth.personal.ecRecover(message, signature);
+//
+//  if (recoveredAddress.toLowerCase() === ethereumAddress.toLowerCase()) {
+//    // Generate a custom Firebase token using the Ethereum address as the UID
+//    const customToken = await admin.auth().createCustomToken(ethereumAddress);
+//    return { customToken };
+//  } else {
+//    throw new functions.https.HttpsError('unauthenticated', 'Invalid signature');
+//  }
+//});
+
+
+
 const app = next({
 	// the absolute directory from the package.json file that initialises this module
 	// IE: the absolute path from the root of the Cloud Function
