@@ -1,11 +1,12 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+// commenting out unused libraries
+//import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { PersonFill, Wallet } from "styled-icons/bootstrap";
-import { SearchAlt } from "styled-icons/boxicons-regular";
+//import Link from "next/link";
+//import { PersonFill, Wallet } from "styled-icons/bootstrap";
+//import { SearchAlt } from "styled-icons/boxicons-regular";
 import { RightArrow } from "styled-icons/boxicons-solid";
-import { CatchingPokemon, Settings } from "styled-icons/material-twotone";
+//import { CatchingPokemon, Settings } from "styled-icons/material-twotone";
 
 function FeatureModal(props: any) {
   return (
