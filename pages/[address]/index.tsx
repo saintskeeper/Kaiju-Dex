@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { Crown } from "styled-icons/boxicons-regular";
 import { useAccount, useEnsName } from "wagmi";
-import { useBalance } from "wagmi";
+//import { useBalance } from "wagmi";
 
 const Home: NextPage = () => {
   const { address, connector, isConnected } = useAccount();
