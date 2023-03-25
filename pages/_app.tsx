@@ -1,24 +1,19 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { WagmiConfig, createClient, useBalance } from "wagmi";
+import { WagmiConfig, createClient } from "wagmi";
 import { configureChains, mainnet } from "@wagmi/core";
 import { publicProvider } from "@wagmi/core/providers/public";
 import {
   getDefaultWallets,
   RainbowKitProvider,
-  darkTheme,
+  midnightTheme,
 } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-import { PersonFill } from "styled-icons/bootstrap";
-import { SearchAlt } from "styled-icons/boxicons-regular";
-import {
-  CatchingPokemon,
-  Explore,
-  Settings,
-} from "styled-icons/material-twotone";
+import { News, SearchAlt } from "styled-icons/boxicons-regular";
+import { CatchingPokemon, Explore } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
@@ -34,14 +29,10 @@ const wagmiClient = createClient({
   provider,
 });
 
-const kaijuContract = "0x...";
-const scientistContract = "0x...";
-const mutantContract = "0x...";
-
 function MyApp({ Component, pageProps }: AppProps) {
-  const { address, connector, isConnected } = useAccount();
+  const { isConnected } = useAccount();
   return (
-    <div className="bg-[#262829]">
+    <div className="bg-[#19191a]">
       <Head>
         <meta property="og:title" content="WKaijuDex" key="ogtitle" />
         <meta
@@ -56,7 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider
           chains={chains}
-          theme={darkTheme({
+          theme={midnightTheme({
             accentColor: "#7b3fe4",
             accentColorForeground: "white",
             borderRadius: "large",
@@ -65,53 +56,68 @@ function MyApp({ Component, pageProps }: AppProps) {
           })}
         >
           <div className="place-items-center max-w-[1400px] mx-auto">
-            <div className="flex">
-              <div className="bg-[#202124] border border-l-0 border-y-0 border-[#1d1e20] w-[300px] hidden md:flex md:flex-col h-screen text-white p-5 space-y-5">
-                <div className="flex space-x-2 mb-10">
-                  <CatchingPokemon className="w-7 animate-spin" />
-                  <Link href="/">
-                    <h1 className="font-mono text-2xl font-bold tracking-wider hover:scale-105 cursor-pointer active:scale-95 duration-100">
+            <div className="flex-col flex">
+              <div className="bg-[#19191a] fixed w-full flex-row max-w-[1400px] mx-auto text-white p-2 flex space-x-5">
+                <div className="flex mr-auto">
+                  <Link
+                    href="/"
+                    className="flex place-items-center text-[#832FA5] space-x-1 hover:scale-105 cursor-pointer active:scale-95 duration-100"
+                  >
+                    <CatchingPokemon className="w-5 my-auto animate-spin fill-[#b073c9] " />
+                    <div className="text-xl font-black tracking-widest text-[#b073c9]">
                       KAIJUDEX
-                    </h1>
+                    </div>
                   </Link>
-                </div>
-                <div className="font-sans font-bold flex space-x-2 place-content-center mx-auto py-3 px-5 w-full bg-[#1A1B1F] cursor-pointer duration-100 rounded-full">
-                  <Explore className="w-5" />
-                  <h1 className="">Explore</h1>
-                </div>
-              </div>
-              <div className="bg-[#202124] w-full h-screen text-white p-5 space-y-5">
-                <div className="flex space-x-3 place-items-center">
-                  <div className="w-[20rem] bg-[#2e3031] h-8 rounded-full py-1 px-3 mr-auto flex">
+                  <div className=" py-3 px-5 hover:bg-[#1a1b1fab] cursor-pointer duration-150 rounded-lg">
+                    <Link
+                      href="/explore"
+                      className="flex space-x-2 place-content-center"
+                    >
+                      <Explore className="w-4" />
+                      <div className="">Explore</div>
+                    </Link>
+                  </div>
+                  <div className=" py-3 px-5 hover:bg-[#1a1b1fab] cursor-pointer duration-150 rounded-lg">
+                    <Link
+                      href="/news"
+                      className="flex space-x-2 place-content-center"
+                    >
+                      <News className="w-5" />
+                      <div className="">News</div>
+                    </Link>
+                  </div>
+                  <div className="w-[20rem] bg-[#2e3031] h-8 rounded-lg py-1 px-3 flex my-auto">
                     <SearchAlt className="w-5 my-auto" />
                     <input
                       type={"text"}
                       placeholder="Search"
                       className="w-[85%] mx-auto flex bg-transparent border-none outline-none font-sans text-sm"
-                    ></input>
+                    />
                   </div>
-                  <div className="bg-[#1A1B1F] hover:scale-110 p-2 font-sans font-bold rounded-full flex hover:cursor-pointer duration-100 active:scale-95 place-content-center space-x-1">
-                    <Settings className="w-5 mx-auto my-auto" />
+                </div>
+                <div className="flex space-x-3 my-auto">
+                  {/* <div className="bg-[#0e0f11] hover:scale-110 p-2 rounded-full flex hover:cursor-pointer duration-100 active:scale-95">
+                    <Link
+                      href={"/settings"}
+                      className="w-5 h-5  mx-auto my-auto flex"
+                    >
+                      <Settings />
+                    </Link>
                   </div>
-                  <div className="bg-[#1A1B1F] hover:scale-110 p-2 font-sans font-bold rounded-full flex hover:cursor-pointer duration-100 active:scale-95 place-content-center space-x-1">
+                  <div className="bg-[#0e0f11] hover:scale-110 p-2 rounded-full flex hover:cursor-pointer duration-100 active:scale-95">
                     <Link
                       href={"/" + address}
-                      className="w-5 mx-auto my-auto flex"
+                      className="w-5 h-5  mx-auto my-auto flex"
                     >
                       <PersonFill />
                     </Link>
-                  </div>
+                  </div> */}
                   <ConnectButton showBalance={false} />
                 </div>
-                {isConnected ? (
-                  <Component {...pageProps} />
-                ) : (
-                  <h1 className="font-mono text-xl">
-                    Connect Wallet For Access
-                  </h1>
-                )}
               </div>
             </div>
+            <div className="mb-[5rem]" />
+            <Component {...pageProps} />
           </div>
         </RainbowKitProvider>
       </WagmiConfig>
