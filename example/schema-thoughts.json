@@ -1,0 +1,34 @@
+{
+  "users": {
+    "user": "<eth_address_0>",
+      "roles": {
+        "engineer": false,
+        "artist": false,
+        "degen": false
+      },
+      "nfts": {
+        "Genisus": {
+          "quantity": 0,
+					"owned": false
+        },
+        "Baby": {
+          "quantity": 0,
+					"owned": false
+        },
+        "Mutant": {
+          "quantity": 0,
+					"owned": false
+        },
+        "Scientist": {
+          "quantity": 0,
+					"owned": false
+        }
+      }
+    },
+  "usersname": {
+    "<eth_address_0>": {
+      "active": false,
+      "timeout": false
+    }
+  }
+}
