@@ -8,7 +8,9 @@ import {
   getDefaultWallets,
   RainbowKitProvider,
   darkTheme,
+  connectorsForWallets,
 } from "@rainbow-me/rainbowkit";
+import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
 import "@rainbow-me/rainbowkit/styles.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
@@ -20,10 +22,12 @@ import { useAccount } from "wagmi";
 
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
 
-const { connectors } = getDefaultWallets({
-  appName: "KaijuDex",
-  chains,
-});
+const connectors = connectorsForWallets([
+  {
+    groupName: "Currently Supported",
+    wallets: [metaMaskWallet({ chains })],
+  },
+]);
 
 const wagmiClient = createClient({
   autoConnect: true,
@@ -56,6 +60,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             fontStack: "system",
             overlayBlur: "small",
           })}
+          modalSize="compact"
         >
           <div className="place-items-center max-w-[1400px] mx-auto">
             <div className="flex-col flex">
