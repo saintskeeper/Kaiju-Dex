@@ -10,4 +10,7 @@
 
 body {
   background-color: #19191a;
+  opacity: 0.8;
+  background-image: radial-gradient(#222222 1.1px, #19191a 1.1px);
+  background-size: 22px 22px;
 }
