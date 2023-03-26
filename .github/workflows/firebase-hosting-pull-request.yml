@@ -26,7 +26,7 @@ jobs:
       id: deploy
       uses: w9jds/firebase-action@master
       with:
-        args: deploy --only functions,hosting --project kaiju-dex --channel pr-${{ github.event.number }}
+        args: deploy --only functions,hosting --project kaiju-dex --target pr-${{ github.event.number }}
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAIJU_DEX }}
 
@@ -37,13 +37,13 @@ jobs:
       run: |
         PR_NUMBER=${{ github.event.number }}
         PROJECT_ID=kaiju-dex
-        CHANNEL_NAME="pr-$PR_NUMBER"
         RESPONSE=$(curl -s -X GET \
-          "https://firebasehosting.googleapis.com/v1beta1/projects/$PROJECT_ID/sites/$PROJECT_ID/channels/$CHANNEL_NAME/releases" \
+          "https://firebasehosting.googleapis.com/v1beta1/projects/$PROJECT_ID/sites/$PROJECT_ID/versions" \
           -H "Authorization: Bearer $FIREBASE_TOKEN" \
           -H "Content-Type: application/json")
-        RELEASE_URL=$(echo $RESPONSE | jq -r '.releases[0].version.config.url')
-        echo "::set-output name=url::$RELEASE_URL"
+        VERSION_NAME="pr-$PR_NUMBER"
+        VERSION_URL=$(echo $RESPONSE | jq -r --arg VERSION_NAME "$VERSION_NAME" '.versions[] | select(.labels.pr == $VERSION_NAME) | .config.url')
+        echo "::set-output name=url::$VERSION_URL"
 
     - name: Add comment to PR
       uses: actions/github-script@v5
