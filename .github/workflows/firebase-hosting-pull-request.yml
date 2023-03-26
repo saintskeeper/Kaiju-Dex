@@ -24,7 +24,7 @@ jobs:
 
     - name: Build and deploy to Firebase Release Channel
       id: deploy
-      uses: w9jds/firebase-action@v2
+      uses: w9jds/firebase-action@master
       with:
         args: deploy --only functions,hosting --project kaiju-dex --channel pr-${{ github.event.number }}
         projectId: kaiju-dex
