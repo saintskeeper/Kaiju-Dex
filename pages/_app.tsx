@@ -21,6 +21,9 @@ import {
 } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 
+// custom components
+import Sidebar from '../lib/Sidebar/Sidebar';
+
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
 
 const { connectors } = getDefaultWallets({
@@ -66,20 +69,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         >
           <div className="place-items-center max-w-[1400px] mx-auto">
             <div className="flex">
-              <div className="bg-[#202124] border border-l-0 border-y-0 border-[#1d1e20] w-[300px] hidden md:flex md:flex-col h-screen text-white p-5 space-y-5">
-                <div className="flex space-x-2 mb-10">
-                  <CatchingPokemon className="w-7 animate-spin" />
-                  <Link href="/">
-                    <h1 className="font-mono text-2xl font-bold tracking-wider hover:scale-105 cursor-pointer active:scale-95 duration-100">
-                      KAIJUDEX
-                    </h1>
-                  </Link>
-                </div>
-                <div className="font-sans font-bold flex space-x-2 place-content-center mx-auto py-3 px-5 w-full bg-[#1A1B1F] cursor-pointer duration-100 rounded-full">
-                  <Explore className="w-5" />
-                  <h1 className="">Explore</h1>
-                </div>
-              </div>
+              <Sidebar />
               <div className="bg-[#202124] w-full h-screen text-white p-5 space-y-5">
                 <div className="flex space-x-3 place-items-center">
                   <div className="w-[20rem] bg-[#2e3031] h-8 rounded-full py-1 px-3 mr-auto flex">
@@ -94,11 +84,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <Settings className="w-5 mx-auto my-auto" />
                   </div>
                   <div className="bg-[#1A1B1F] hover:scale-110 p-2 font-sans font-bold rounded-full flex hover:cursor-pointer duration-100 active:scale-95 place-content-center space-x-1">
-                    <Link
-                      href={"/" + address}
-                      className="w-5 mx-auto my-auto flex"
-                    >
-                      <PersonFill />
+                    <Link href={"/" + address} passHref>
+                      <a className="w-5 mx-auto my-auto flex">
+                        <PersonFill />
+                      </a>
                     </Link>
                   </div>
                   <ConnectButton showBalance={false} />
