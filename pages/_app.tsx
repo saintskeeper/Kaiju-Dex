@@ -17,7 +17,6 @@ import { CatchingPokemon, Explore } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 
 // custom components
-import Sidebar from '../lib/Sidebar/Sidebar';
 
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
 
