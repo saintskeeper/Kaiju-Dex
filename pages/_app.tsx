@@ -16,6 +16,8 @@ import { News, SearchAlt } from "styled-icons/boxicons-regular";
 import { CatchingPokemon, Explore } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 
+// custom components
+
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
 
 const { connectors } = getDefaultWallets({
