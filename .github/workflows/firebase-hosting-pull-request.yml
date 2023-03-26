@@ -27,8 +27,8 @@ jobs:
       uses: w9jds/firebase-action@master
       with:
         args: deploy --only functions,hosting --project kaiju-dex --channel pr-${{ github.event.number }}
-        projectId: kaiju-dex
-        FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAIJU_DEX }}
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAIJU_DEX }}
 
     - name: Get release channel URL
       id: get-url
