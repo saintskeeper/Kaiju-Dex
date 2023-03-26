@@ -28,9 +28,8 @@ jobs:
       id: deploy
       run: |
         PR_NUMBER=${{ github.event.number }}
-        DEPLOY_RESULT=$(npx firebase hosting:channel:deploy pr-${PR_NUMBER} --only functions,hosting --token "$FIREBASE_TOKEN")
-        echo "DEPLOY_RESULT=$DEPLOY_RESULT" >> $GITHUB_ENV
-        URL=$(echo "$DEPLOY_RESULT" | grep -o 'https://[^[:space:]]*')
+        npx firebase hosting:channel:deploy pr-${PR_NUMBER} --only functions,hosting --token "$FIREBASE_TOKEN" | tee deploy.log
+        URL=$(cat "deploy.log" | grep -o 'https://[^[:space:]]*')
         echo "::set-output name=url::$URL"
 
     - name: Add comment to PR
