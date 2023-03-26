@@ -31,7 +31,7 @@ jobs:
         FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID_KAIJU_DEX }}
       run: |
         PR_NUMBER=${{ github.event.number }}
-        npx firebase hosting:channel:deploy pr-${PR_NUMBER} --only functions,hosting --token "$FIREBASE_TOKEN" | tee deploy.log
+        npx firebase hosting:channel:deploy pr-${PR_NUMBER} --only functions,hosting --token "$FIREBASE_TOKEN"  --project "$FIREBASE_PROJECT_ID" | tee deploy.log
         URL=$(cat deploy.log | grep -o 'https://[^[:space:]]*')
         echo "::set-output name=url::$URL"
 
