@@ -28,6 +28,7 @@ jobs:
       id: deploy
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAIJU_DEX }}
+        FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID_KAIJU_DEX }}
       run: |
         PR_NUMBER=${{ github.event.number }}
         npx firebase hosting:channel:deploy pr-${PR_NUMBER} --only functions,hosting --token "$FIREBASE_TOKEN" | tee deploy.log
