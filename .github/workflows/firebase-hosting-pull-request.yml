@@ -24,14 +24,11 @@ jobs:
     - name: Install Firebase CLI
       run: npm install -g firebase-tools
 
-    - name: Log in to Firebase
-      run: echo ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAIJU_DEX }} | npx firebase login:ci --token /dev/stdin
-
     - name: Deploy to Firebase Preview Channel
       id: deploy
       run: |
         PR_NUMBER=${{ github.event.number }}
-        DEPLOY_RESULT=$(firebase hosting:channel:deploy pr-${PR_NUMBER} --only functions,hosting)
+        DEPLOY_RESULT=$(npx firebase hosting:channel:deploy pr-${PR_NUMBER} --only functions,hosting --token "$FIREBASE_TOKEN")
         echo "DEPLOY_RESULT=$DEPLOY_RESULT" >> $GITHUB_ENV
         URL=$(echo "$DEPLOY_RESULT" | grep -o 'https://[^[:space:]]*')
         echo "::set-output name=url::$URL"
