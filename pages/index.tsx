@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           <h1 className="text-[5rem] ">KaijuDex</h1>
           <p className="text-zinc-500 md:w-1/2">
             Connect with like-minded creatives, discover exciting new gigs, and
-            level up your career. Whether you're an artist or engineer,
+            level up your career. Whether you&apos;re an artist or engineer,
             Kaiju-Dex connects you to a community of potential clients and
             collaborators of the KaijuKingz community, ready to help you unleash
             your skills and grow your portfolio.
