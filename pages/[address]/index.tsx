@@ -79,8 +79,28 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#24242494] rounded-lg p-3 ">
+      <div className="bg-[#24242494] rounded-lg p-5 space-y-4">
         <h1 className="text-2xl font-bold">What I Offer:</h1>
+        <p className="text-md">
+          As a software developer, I offer a range of services that can help
+          businesses and organizations ensure the security and reliability of
+          their blockchain-based applications. My main focus is on being a
+          whitehat/auditor and identifying vulnerabilities in Solidity EVM smart
+          contracts to prevent any malicious activity.
+          <br />
+          <br />
+          In addition to my auditing skills, I&apos;m also an experienced web
+          developer who can create amazing websites from scratch and integrate
+          full-stack NFT projects with ease. Whether you need a simple static
+          website or a complex e-commerce platform, I can build it for you.
+          <br />
+          <br />
+          So, if you&apos;re looking for someone who can help you ensure the
+          security of your blockchain-based apps or create an amazing website or
+          NFT project, don&apos;t hesitate to reach out. I&apos;m always up for
+          a new challenge and ready to help you bring your ideas to life.
+          Contact me on Discord or Twitter for a quote. (GLPT GIGACHAD)
+        </p>
       </div>
     </div>
   );

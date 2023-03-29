@@ -16,7 +16,11 @@ import Link from "next/link";
 import { News, SearchAlt } from "styled-icons/boxicons-regular";
 import { CatchingPokemon, Explore } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
-import { PersonFill } from "styled-icons/bootstrap";
+import {
+  PersonFill,
+  Question,
+  QuestionCircleFill,
+} from "styled-icons/bootstrap";
 
 // custom components
 
@@ -105,7 +109,12 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </div>
                 <div className="flex space-x-3 my-auto md:visible invisible text-md">
                   <div className="bg-zinc-800 hover:scale-110 p-2 place-items-center rounded-lg flex hover:cursor-pointer duration-100 active:scale-95">
-                    <Link href={"/" + address} className="w-5 h-5  flex">
+                    <Link href={"/help"} className="w-5 h-5  flex">
+                      <QuestionCircleFill />
+                    </Link>
+                  </div>
+                  <div className="bg-zinc-800 hover:scale-110 p-2 place-items-center rounded-lg flex hover:cursor-pointer duration-100 active:scale-95">
+                    <Link href={"/" + address} className="w-5 h-5 flex">
                       <PersonFill />
                     </Link>
                   </div>
