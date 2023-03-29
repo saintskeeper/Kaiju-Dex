@@ -61,15 +61,14 @@ const Home: NextPage = () => {
               hacker/whitehat. I use my expertise in cybersecurity to help
               protect the community and keep us all safe from bad actors. With a
               passion for cutting-edge technology and a strong commitment to
-              ethical principles, I&apos;m always looking for ways to improve
-              the security of the NFT space and keep KaijuKingz ahead of the
-              game. Whether it&apos;s identifying vulnerabilities, implementing
-              new security protocols, or educating others on best practices,
-              I&apos;m always working hard to ensure that the community can
-              thrive and grow without worrying about security threats. So if
-              you&apos;re looking for a dedicated cybersecurity expert
-              who&apos;s always looking out for the greater good, look no
-              further. (GLPT carry)
+              ethical principles, I&apos;m always looking for ways to improve the
+              security of the NFT space and keep KaijuKingz ahead of the game.
+              Whether its identifying vulnerabilities, implementing new
+              security protocols, or educating others on best practices, Im
+              always working hard to ensure that the community can thrive and
+              grow without worrying about security threats. So if you&apos;re looking
+              for a dedicated cybersecurity expert whos always looking out for
+              the greater good, look no further. (GLPT carry)
             </p>
             <div className="flex space-x-2 ">
               <Crown className="w-5" />
