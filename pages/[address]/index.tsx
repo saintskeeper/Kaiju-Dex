@@ -61,14 +61,15 @@ const Home: NextPage = () => {
               hacker/whitehat. I use my expertise in cybersecurity to help
               protect the community and keep us all safe from bad actors. With a
               passion for cutting-edge technology and a strong commitment to
-              ethical principles, I'm always looking for ways to improve the
-              security of the NFT space and keep KaijuKingz ahead of the game.
-              Whether it's identifying vulnerabilities, implementing new
-              security protocols, or educating others on best practices, I'm
-              always working hard to ensure that the community can thrive and
-              grow without worrying about security threats. So if you're looking
-              for a dedicated cybersecurity expert who's always looking out for
-              the greater good, look no further. (GLPT carry)
+              ethical principles, I&apos;m always looking for ways to improve
+              the security of the NFT space and keep KaijuKingz ahead of the
+              game. Whether it&apos;s identifying vulnerabilities, implementing
+              new security protocols, or educating others on best practices,
+              I&apos;m always working hard to ensure that the community can
+              thrive and grow without worrying about security threats. So if
+              you&apos;re looking for a dedicated cybersecurity expert
+              who&apos;s always looking out for the greater good, look no
+              further. (GLPT carry)
             </p>
             <div className="flex space-x-2 ">
               <Crown className="w-5" />
@@ -79,8 +80,28 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#24242494] rounded-lg p-3 ">
+      <div className="bg-[#24242494] rounded-lg p-5 space-y-4">
         <h1 className="text-2xl font-bold">What I Offer:</h1>
+        <p className="text-md">
+          As a software developer, I offer a range of services that can help
+          businesses and organizations ensure the security and reliability of
+          their blockchain-based applications. My main focus is on being a
+          whitehat/auditor and identifying vulnerabilities in Solidity EVM smart
+          contracts to prevent any malicious activity.
+          <br />
+          <br />
+          In addition to my auditing skills, I&apos;m also an experienced web
+          developer who can create amazing websites from scratch and integrate
+          full-stack NFT projects with ease. Whether you need a simple static
+          website or a complex e-commerce platform, I can build it for you.
+          <br />
+          <br />
+          So, if you&apos;re looking for someone who can help you ensure the
+          security of your blockchain-based apps or create an amazing website or
+          NFT project, don&apos;t hesitate to reach out. I&apos;m always up for
+          a new challenge and ready to help you bring your ideas to life.
+          Contact me on Discord or Twitter for a quote. (GLPT GIGACHAD)
+        </p>
       </div>
     </div>
   );
