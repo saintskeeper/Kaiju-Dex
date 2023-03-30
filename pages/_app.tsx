@@ -14,13 +14,18 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import { News, SearchAlt } from "styled-icons/boxicons-regular";
-import { CatchingPokemon, Explore } from "styled-icons/material-twotone";
+import {
+  CatchingPokemon,
+  Dashboard,
+  Explore,
+} from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 import {
   PersonFill,
   Question,
   QuestionCircleFill,
 } from "styled-icons/bootstrap";
+import Image from "next/image";
 
 // custom components
 
@@ -58,73 +63,101 @@ function MyApp({ Component, pageProps }: AppProps) {
         <RainbowKitProvider
           chains={chains}
           theme={darkTheme({
-            accentColor: "#832FA5",
+            accentColor: "#6544c9",
             accentColorForeground: "white",
             borderRadius: "large",
             fontStack: "system",
             overlayBlur: "small",
           })}
           modalSize="compact"
+          avatar={() => (
+            <Image
+              src="/images/placeholderpfp.png"
+              alt="pfp"
+              width="100"
+              height="100"
+              className="blur-[1px]"
+            />
+          )}
         >
-          <div className="place-items-center max-w-[1400px] mx-auto">
-            <div className="flex-col flex">
-              <div className="fixed w-full bg-[#46464611] backdrop-blur-3xl flex-row max-w-[1400px] mx-auto text-white p-2 flex space-x-5">
-                <div className="flex mr-auto space-x-5 text-md">
+          <div className="place-items-center mx-auto max-w-[1500px]">
+            <div className="flex relative">
+              <div className="fixed h-[100vh] flex-row text-white flex space-x-5 z-20">
+                <div className="flex flex-col text-md bg-[#1F2027] border-r border-zinc-700 p-4 place-items-left place-content-left pr-12">
                   <Link
                     href="/"
-                    className="flex place-items-center text-[#832FA5] space-x-1 cursor-pointer "
+                    className="flex flex-col place-items-center text-[#6544c9]cursor-pointer mr-auto my-[50px] px-5"
                   >
-                    <CatchingPokemon className="w-4 md:w-5 my-auto hover:animate-spin fill-[#b073c9] " />
-                    <div className="text-xl font-black tracking-widest text-[#b073c9]">
-                      KAIJUDEX
+                    <div className="flex space-x-1 ">
+                      <CatchingPokemon className="w-8 my-auto fill-[#6544c9] rotate-12" />
+                      <div className="text-3xl font-black ">KAIJUDEX</div>
                     </div>
+                    <p className="font-bold text-xs ml-auto text-zinc-500">
+                      DEV BUILD
+                    </p>
                   </Link>
-                  <div className="bg-zinc-700 w-[2px] h-1/2 my-auto" />
-                  <div className=" py-2 px-3 my-auto hover:bg-zinc-800 cursor-pointer duration-150 rounded-lg md:visible invisible">
-                    <Link
-                      href="/explore"
-                      className="flex space-x-2 place-content-center"
-                    >
-                      <Explore className="w-3 md:w-4" />
-                      <div className="">Explore</div>
-                    </Link>
+                  <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                      <Link
+                        href="/explore"
+                        className="flex space-x-4 place-content-left place-items-center "
+                      >
+                        <Dashboard className="w-9" />
+                        <div className="">Dashboard</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl ">
+                      <Link
+                        href="/explore"
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <Explore className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">Explore</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                      <Link
+                        href="/news"
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <News className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">News</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                      <Link
+                        href="/help"
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <Question className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">Help</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                      <Link
+                        href={"/" + address}
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <PersonFill className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">Profile</div>
+                      </Link>
+                    </div>
                   </div>
-                  <div className=" py-2 px-3 my-auto hover:bg-zinc-800 cursor-pointer duration-150 rounded-lg md:visible invisible">
-                    <Link
-                      href="/news"
-                      className="flex space-x-2 place-content-center"
-                    >
-                      <News className="w-3 md:w-4" />
-                      <div className="">News</div>
-                    </Link>
-                  </div>
-                  <div className="w-[20rem] bg-zinc-800 h-8 rounded-lg py-1 px-3 flex my-auto md:visible invisible">
-                    <SearchAlt className="w-5 my-auto" />
-                    <input
-                      type={"text"}
-                      placeholder="Search"
-                      className="w-[85%] mx-auto flex bg-transparent border-none outline-none text-sm"
-                    />
-                  </div>
-                </div>
-                <div className="flex space-x-3 my-auto md:visible invisible text-md">
-                  <div className="bg-zinc-800 hover:scale-110 p-2 place-items-center rounded-lg flex hover:cursor-pointer duration-100 active:scale-95">
-                    <Link href={"/help"} className="w-5 h-5  flex">
-                      <QuestionCircleFill />
-                    </Link>
-                  </div>
-                  <div className="bg-zinc-800 hover:scale-110 p-2 place-items-center rounded-lg flex hover:cursor-pointer duration-100 active:scale-95">
-                    <Link href={"/" + address} className="w-5 h-5 flex">
-                      <PersonFill />
-                    </Link>
-                  </div>
-
-                  <ConnectButton showBalance={false} />
                 </div>
               </div>
             </div>
-            <div className="mb-[5rem]" />
-            <div className="p-4">
+            <div className="ml-[270px] px-12 py-10 flex flex-col space-y-10">
+              <div className="ml-auto flex space-x-5">
+                <div className="w-[20rem] bg-[#1A1B1F] h-11 rounded-lg py-1 px-3 flex my-auto shadow-xl">
+                  <SearchAlt className="w-5 my-auto" />
+                  <input
+                    type={"text"}
+                    placeholder="Search"
+                    className="w-[85%] mx-auto flex bg-transparent border-none outline-none text-sm"
+                  />
+                </div>
+                <ConnectButton showBalance={false} />
+              </div>
               <Component {...pageProps} />
             </div>
           </div>
