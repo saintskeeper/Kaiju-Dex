@@ -4,7 +4,7 @@ import Image from "next/image";
 const Home: NextPage = () => {
   return (
     <div>
-      <div className="w-[300px] md:w-[400px] space-y-1 mx-auto outline outline-2 outline-zinc-300 rounded-md">
+      <div className="w-[300px] md:w-[400px] space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md">
         <div className="relative h-[130px] md:h-[170px]">
           <Image src="/images/city.gif" alt="city" fill />
         </div>

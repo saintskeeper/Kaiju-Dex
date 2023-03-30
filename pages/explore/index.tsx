@@ -1,15 +1,14 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import { RightArrow } from "styled-icons/boxicons-solid";
 
 function FeatureModal(props: any) {
   return (
-    <div className="bg-[#24242494] backdrop-blur-xl rounded-lg p-5 flex-col space-y-5 font-bold mb-5">
+    <div className="flex-col space-y-3 mb-10 ml-12 w-[70%]">
       <div>
-        <h1 className="text-xl font-bold tracking-wider uppercase">
-          {props.title}
-        </h1>
+        <h1 className="text-md font-bold tracking-wider ml-2">{props.title}</h1>
       </div>
-      <div className="flex flex-row scroll-smooth overflow-scroll space-x-5 p-5 snap-x ">
+      <div className="flex flex-col scroll-smooth space-y-3">
         {props.children}
       </div>
     </div>
@@ -18,15 +17,12 @@ function FeatureModal(props: any) {
 
 const Profile = () => {
   return (
-    <div className="relative snap-start">
-      <div className="w-[180px] h-[180px] bg-[#7c7b7b4f] rounded-xl animate-pulse duration-500"></div>
-      <div className="z-10 absolute bottom-0 flex w-full p-1 space-x-1 h-12 text-sm">
-        <div className="flex backdrop-blur-lg bg-[#0000009f] rounded-xl w-full py-1 px-2">
-          <div className="mx-auto my-auto">ETH</div>
-        </div>
-        <div className="flex backdrop-blur-md bg-[#ac26e09f] rounded-xl w-full py-1 px-2 place-content-center space-x-2 hover:scale-105 cursor-pointer active:scale-95 duration-100">
-          <div className="my-auto">INFO</div>
-          <RightArrow className="w-3" />
+    <div className="bg-[#7c7b7b2c] hover:bg-[#7c7b7b52] cursor-pointer rounded-md duration-150 p-5 flex flex-col">
+      <div className="flex ml-5 space-x-5">
+        <div className="w-[5rem] h-[5rem] relative bg-zinc-400 animate-pulse rounded-md" />
+        <div className="mt-3">
+          <h1 className="text-2xl font-bold">haruxe.eth</h1>
+          <h1 className="text-md text-zinc-400">Whitehat Hacker</h1>
         </div>
       </div>
     </div>
@@ -35,48 +31,46 @@ const Profile = () => {
 
 const Home: NextPage = () => {
   return (
-    <>
-      <FeatureModal title="Featured artists">
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-      </FeatureModal>
-      <FeatureModal title="Featured engineers">
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-      </FeatureModal>
-    </>
+    <div className="flex w-full">
+      <div className="rounded-2xl flex-row flex bg-[#6544c918] p-12 w-full shadow-xl">
+        <div className="flex flex-col ">
+          <h1 className="font-bold text-xl flex mb-10">Filters</h1>
+          <div className="flex flex-col space-y-3">
+            <h1 className="text-zinc-400 font-bold text-md tracking-wider">
+              SKILLSET
+            </h1>
+            <div className="space-y-2 text-sm text-zinc-300">
+              <h1 className="text-[#9161A6] cursor-pointer">All (153)</h1>
+              <h1 className="hover:text-[#9161A6] cursor-pointer">
+                Artist (42)
+              </h1>
+              <h1 className="hover:text-[#9161A6] cursor-pointer">
+                Engineer (12)
+              </h1>
+              <h1 className="hover:text-[#9161A6] cursor-pointer">
+                Community Manager (55)
+              </h1>
+              <h1 className="hover:text-[#9161A6] cursor-pointer">
+                Security (8)
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div className="h-full bg-zinc-600 w-[1px] ml-10" />
+        <FeatureModal title="432 results found">
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+          <Profile />
+        </FeatureModal>
+      </div>
+    </div>
   );
 };
 

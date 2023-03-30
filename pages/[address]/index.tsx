@@ -16,8 +16,8 @@ const Home: NextPage = () => {
   } = useEnsName({ address: address });
   return (
     <div className="space-y-5">
-      <div className="bg-[#24242494] rounded-lg p-3 flex-col space-y-5">
-        <div className="flex flex-col place-items-center md:flex-row space-x-5">
+      <div className="bg-[#6544c918] rounded-lg p-12 shadow-xl flex-col space-y-5">
+        <div className="flex flex-col place-items-center md:flex-row space-x-12">
           <Image
             height="200"
             width="200"
@@ -32,24 +32,23 @@ const Home: NextPage = () => {
                 {ensLoading ? "..." : ensError ? address?.slice(0, 5) : ens}
               </p>
             </div>
-
             <div className="flex space-x-3">
               <Link
-                href={"www.etherscan.com/" + address}
+                href={"https://www.etherscan.com/" + address}
                 className="flex space-x-2 outline outline-1 outline-zinc-500 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
               >
                 <Link2 className="w-3 h-3" />
                 <p>Etherscan</p>
               </Link>
               <Link
-                href={"www.twitter.com/haruxe.eth"}
+                href={"https://www.twitter.com/haruxeETH"}
                 className="flex space-x-2 outline outline-1 outline-zinc-500 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
               >
                 <Twitter className="w-3 h-3" />
                 <p>Twitter</p>
               </Link>
               <Link
-                href={""}
+                href={"/"}
                 className="flex space-x-2 outline outline-1 outline-zinc-500 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
               >
                 <Discord className="w-3 h-3" />
@@ -80,7 +79,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#24242494] rounded-lg p-5 space-y-4">
+      <div className="bg-[#6544c918] shadow-xl rounded-lg p-12  space-y-4">
         <h1 className="text-2xl font-bold">What I Offer:</h1>
         <p className="text-md">
           As a software developer, I offer a range of services that can help

@@ -16,9 +16,8 @@ const Home: NextPage = () => {
   } = useEnsName({ address: address });
   return (
     <div className="space-y-5">
-      <div className="bg-[#24242494] rounded-lg p-5 space-y-4">
-        <h1 className="text-2xl font-bold">Help</h1>
-        <div className="text-md">
+      <div className="bg-[#242832] rounded-lg p-12 space-y-4">
+        <div className="md:text-lg text-md">
           Welcome to Kaiju-Dex! We&apos;re thrilled to have you here, and we
           want to thank you for checking it out.
           <br />

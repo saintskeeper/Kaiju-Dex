@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
-    <div className="h-[85vh] flex">
-      <div className="my-auto">
+    <div className="h-[85vh] flex w-full">
+      <div className="my-auto mx-auto flex">
         {/* <motion.div
           className="relative w-[159px] h-[251px] md:w-[308px] md:h-[502px] mx-auto"
           animate={{ x: 0 }}
@@ -22,8 +22,9 @@ const Home: NextPage = () => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
+          className=""
         >
-          <h1 className="text-[5rem] ">KaijuDex</h1>
+          <h1 className="text-[5rem] font-bold">KAIJUDEX </h1>
           <p className="text-zinc-500 md:w-1/2">
             Connect with like-minded creatives, discover exciting new gigs, and
             level up your career. Whether you&apos;re an artist or engineer,
