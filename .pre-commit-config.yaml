@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v4.4.0
     hooks:
     -   id: check-json
     -   id: end-of-file-fixer
@@ -13,7 +13,7 @@ repos:
         additional_dependencies: ['gibberish-detector']
         exclude: package.lock.json
 -   repo: https://github.com/pre-commit/mirrors-eslint
-    rev: ''  # Use the sha / tag you want to point at
+    rev: 'v8.37.0'  # Use the sha / tag you want to point at
     hooks:
     -   id: eslint
         additional_dependencies:
