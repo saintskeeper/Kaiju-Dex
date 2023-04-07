@@ -6,9 +6,9 @@
 ```bash
 ls -a test
 ```
-![Test Image](/images/ID.png){width=200 height=200}
+![Test Image](/images/ID.png|800|800)
 
-![Test Image](/images/demo.gif){width=200 height=200}
+![Test Image](/images/demo.gif|400|400)
 
 
 

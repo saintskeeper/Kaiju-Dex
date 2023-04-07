@@ -3,33 +3,33 @@ import React, { useEffect, useState } from 'react';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import rehype2react from 'rehype-react';
 import styles from '../../styles/markdown.module.css';
 import Image from 'next/image';
+import parseMarkdownImages from '../../lib/Markdown/parseMarkdownImages';
 
 interface MarkdownArticleProps {
   markdown: string;
 }
-
-const components = {
-  img: (props: any) => {
-    const width = props['width'] || 200;
-    const height = props['height'] || 200;
-    return <Image src={props.src} alt={props.alt} width={width} height={height} />;
-  },
-};
 
 const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
   const [content, setContent] = useState<React.ReactNode>(null);
 
   useEffect(() => {
     (async () => {
+      const components = {
+        img: (props) => {
+          const width = props.width || 200;
+          const height = props.height || 200;
+          return <Image src={props.src} width={width} height={height} alt={props.alt || ''} />;
+        },
+      };
+
       const processor = unified()
         .use(remarkParse)
-        .use(remarkRehype, { allowDangerousHtml: true })
-        .use(rehypeRaw)
+        .use(parseMarkdownImages)
+        .use(remarkRehype)
         .use(rehypeSanitize)
         .use(rehype2react, { createElement: React.createElement, components });
 
