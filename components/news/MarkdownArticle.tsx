@@ -5,6 +5,7 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeSanitize from 'rehype-sanitize';
 import rehype2react from 'rehype-react';
+import styles from '../../styles/markdown.module.css';
 
 interface MarkdownArticleProps {
   markdown: string;
@@ -26,7 +27,7 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
     })();
   }, [markdown]);
 
-  return <div>{content}</div>;
+  return <div className={styles.markdown}>{content}</div>;
 };
 
 export default MarkdownArticle;
