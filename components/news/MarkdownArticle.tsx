@@ -13,12 +13,14 @@ interface MarkdownArticleProps {
   markdown: string;
 }
 
+
 const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
   const [content, setContent] = useState<React.ReactNode>(null);
 
   useEffect(() => {
     (async () => {
       const components = {
+        // @ts-ignore
         img: (props) => {
           const width = props.width || 200;
           const height = props.height || 200;
@@ -29,6 +31,7 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
       const processor = unified()
         .use(remarkParse)
         .use(parseMarkdownImages)
+        // @ts-ignore
         .use(remarkRehype)
         .use(rehypeSanitize)
         .use(rehype2react, { createElement: React.createElement, components });
