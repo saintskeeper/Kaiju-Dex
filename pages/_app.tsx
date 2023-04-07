@@ -14,14 +14,9 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import { News, SearchAlt } from "styled-icons/boxicons-regular";
-import {
-  CatchingPokemon,
-} from "styled-icons/material-twotone";
+import { CatchingPokemon } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
-import {
-  PersonFill,
-  Question,
-} from "styled-icons/bootstrap";
+import { PersonFill, Question } from "styled-icons/bootstrap";
 import Image from "next/image";
 
 // custom components
@@ -94,8 +89,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     </p>
                   </Link>
                   <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl"></div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
                       <Link
                         href="/news"
@@ -106,8 +100,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                       </Link>
                     </div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                    <Link
-                        href={"/" + address}
+                      <Link
+                        href={"/profile"}
                         className="flex space-x-4 place-items-center place-content-left"
                       >
                         <PersonFill className="w-9 fill-zinc-400" />
@@ -115,7 +109,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                       </Link>
                     </div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                    <Link
+                      <Link
                         href="/help"
                         className="flex space-x-4 place-items-center place-content-left"
                       >
@@ -141,14 +135,14 @@ function MyApp({ Component, pageProps }: AppProps) {
                     DEV BUILD
                   </p>
                 </Link>
-                <div className="w-[20rem] bg-[#1A1B1F] h-11 rounded-lg py-1 px-3 flex my-auto shadow-xl">
+                {/* <div className="w-[20rem] bg-[#1A1B1F] h-11 rounded-lg py-1 px-3 flex my-auto shadow-xl">
                   <SearchAlt className="w-5 my-auto" />
                   <input
                     type={"text"}
                     placeholder="Search"
                     className="w-[85%] mx-auto flex bg-transparent border-none outline-none text-sm"
                   />
-                </div>
+                </div> */}
                 <ConnectButton showBalance={false} />
               </div>
               <div className="mb-10" />
