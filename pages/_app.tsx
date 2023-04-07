@@ -16,14 +16,11 @@ import Link from "next/link";
 import { News, SearchAlt } from "styled-icons/boxicons-regular";
 import {
   CatchingPokemon,
-  Dashboard,
-  Explore,
 } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 import {
   PersonFill,
   Question,
-  QuestionCircleFill,
 } from "styled-icons/bootstrap";
 import Image from "next/image";
 
@@ -98,22 +95,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                   </Link>
                   <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
-                        href="/explore"
-                        className="flex space-x-4 place-content-left place-items-center "
-                      >
-                        <Dashboard className="w-9" />
-                        <div className="">Dashboard</div>
-                      </Link>
-                    </div>
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl ">
-                      <Link
-                        href="/explore"
-                        className="flex space-x-4 place-items-center place-content-left"
-                      >
-                        <Explore className="w-9 fill-zinc-400" />
-                        <div className="text-zinc-400">Explore</div>
-                      </Link>
                     </div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
                       <Link
@@ -125,21 +106,21 @@ function MyApp({ Component, pageProps }: AppProps) {
                       </Link>
                     </div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
-                        href="/help"
-                        className="flex space-x-4 place-items-center place-content-left"
-                      >
-                        <Question className="w-9 fill-zinc-400" />
-                        <div className="text-zinc-400">Help</div>
-                      </Link>
-                    </div>
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
+                    <Link
                         href={"/" + address}
                         className="flex space-x-4 place-items-center place-content-left"
                       >
                         <PersonFill className="w-9 fill-zinc-400" />
                         <div className="text-zinc-400">Profile</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                    <Link
+                        href="/help"
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <Question className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">Help</div>
                       </Link>
                     </div>
                   </div>
