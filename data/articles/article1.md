@@ -6,7 +6,7 @@
 ```bash
 ls -a test
 ```
-#![](../../public/images/ID.png)
+#![test]("../../public/images/ID.png")
 
 
 # example image in markdown

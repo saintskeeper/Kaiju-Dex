@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Link
-        href="/news/intro"
+        href="/news/articles/article1"
         className="cursor-pointer flex w-[300px] md:w-[400px] "
       >
         <div className="space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md hover:scale-105 duration-200">
