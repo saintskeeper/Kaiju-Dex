@@ -81,7 +81,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           )}
         >
           <div className="place-items-center mx-auto max-w-[1500px]">
-            <div className="flex relative">
+            <div className="relative hidden md:flex">
               <div className="fixed h-[100vh] flex-row text-white flex space-x-5 z-20">
                 <div className="flex flex-col text-md bg-[#1F2027] border-r border-zinc-700 p-4 place-items-left place-content-left pr-12">
                   <Link
@@ -146,8 +146,20 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </div>
               </div>
             </div>
-            <div className="ml-[270px] px-12 py-10 flex flex-col space-y-10">
+            <div className="md:ml-[270px] px-5 md:px-12 py-10 flex flex-col space-y-10">
               <div className="ml-auto flex space-x-5">
+                <Link
+                  href="/"
+                  className="flex md:hidden flex-col place-items-center text-[#6544c9]cursor-pointer mr-auto px-5"
+                >
+                  <div className="flex space-x-1 ">
+                    <CatchingPokemon className="w-5 my-auto fill-[#6544c9] rotate-12" />
+                    <div className="text-xl font-black ">KAIJUDEX</div>
+                  </div>
+                  <p className="font-bold text-xs ml-auto text-zinc-500">
+                    DEV BUILD
+                  </p>
+                </Link>
                 <div className="w-[20rem] bg-[#1A1B1F] h-11 rounded-lg py-1 px-3 flex my-auto shadow-xl">
                   <SearchAlt className="w-5 my-auto" />
                   <input
@@ -158,6 +170,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </div>
                 <ConnectButton showBalance={false} />
               </div>
+              <div className="mb-10" />
               <Component {...pageProps} />
             </div>
           </div>
