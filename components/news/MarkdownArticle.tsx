@@ -1,24 +1,30 @@
 // components/MarkdownArticle.tsx
-
-/* In this updated component, we're using the unified processor with remark-parse to parse the Markdown content, then remark-rehype to convert it to HTML. Finally, we use rehype-react to convert the HTML to React components. This way, the MarkdownArticle component will work with Markdown input and render it as React components.*/
-// components/MarkdownArticle.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import rehypeReact from 'rehype-react';
+import rehypeSanitize from 'rehype-sanitize';
+import rehype2react from 'rehype-react';
 
 interface MarkdownArticleProps {
   markdown: string;
 }
 
 const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
-  const processor = unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypeReact, { createElement: React.createElement });
+  const [content, setContent] = useState<React.ReactNode>(null);
 
-  const content = processor.processSync(markdown).result;
+  useEffect(() => {
+    (async () => {
+      const processor = unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeSanitize)
+        .use(rehype2react, { createElement: React.createElement });
+
+      const file = await processor.process(markdown);
+      setContent(file.result as React.ReactNode);
+    })();
+  }, [markdown]);
 
   return <div>{content}</div>;
 };
