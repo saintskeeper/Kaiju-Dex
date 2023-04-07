@@ -16,19 +16,19 @@ const Home: NextPage = () => {
   } = useEnsName({ address: address });
   return (
     <div className="space-y-5">
-      <div className="bg-[#6544c918] rounded-lg p-12 shadow-xl flex-col space-y-5">
-        <div className="flex flex-col place-items-center md:flex-row space-x-12">
+      <div className=" rounded-lg flex-col space-y-5">
+        <div className="flex flex-col place-items-start space-y-5">
           <Image
-            height="200"
-            width="200"
+            height="150"
+            width="150"
             src="/images/demo.gif"
-            className="rounded-xl my-auto"
+            className="rounded-md"
             alt="demo"
           />
-          <div className="py-2 space-y-3 flex flex-col relative">
+          <div className="py-2 space-y-5 flex flex-col relative">
             <div className="flex place-items-center space-x-3">
-              <Code className="w-6 h-6" />
-              <p className="text-2xl font-bold tracking-wider">
+              {/* <Code className="w-6 h-6 my-auto" /> */}
+              <p className="text-3xl font-bold tracking-wider">
                 {ensLoading ? "..." : ensError ? address?.slice(0, 5) : ens}
               </p>
             </div>
@@ -60,14 +60,14 @@ const Home: NextPage = () => {
               hacker/whitehat. I use my expertise in cybersecurity to help
               protect the community and keep us all safe from bad actors. With a
               passion for cutting-edge technology and a strong commitment to
-              ethical principles, I&apos;m always looking for ways to improve the
-              security of the NFT space and keep KaijuKingz ahead of the game.
-              Whether its identifying vulnerabilities, implementing new
+              ethical principles, I&apos;m always looking for ways to improve
+              the security of the NFT space and keep KaijuKingz ahead of the
+              game. Whether its identifying vulnerabilities, implementing new
               security protocols, or educating others on best practices, Im
               always working hard to ensure that the community can thrive and
-              grow without worrying about security threats. So if you&apos;re looking
-              for a dedicated cybersecurity expert whos always looking out for
-              the greater good, look no further. (GLPT carry)
+              grow without worrying about security threats. So if you&apos;re
+              looking for a dedicated cybersecurity expert whos always looking
+              out for the greater good, look no further. (GLPT carry)
             </p>
             <div className="flex space-x-2 ">
               <Crown className="w-5" />
@@ -78,9 +78,10 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#6544c918] shadow-xl rounded-lg p-12  space-y-4">
+      <div className="h-[2px] bg-zinc-700" />
+      <div className="rounded-lg  space-y-4">
         <h1 className="text-2xl font-bold">What I Offer:</h1>
-        <p className="text-md">
+        <p className="text-md text-gray-400 tracking-wide">
           As a software developer, I offer a range of services that can help
           businesses and organizations ensure the security and reliability of
           their blockchain-based applications. My main focus is on being a

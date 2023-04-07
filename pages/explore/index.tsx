@@ -4,7 +4,7 @@ import { RightArrow } from "styled-icons/boxicons-solid";
 
 function FeatureModal(props: any) {
   return (
-    <div className="flex-col space-y-3 mb-10 ml-12 w-[70%]">
+    <div className="flex-col space-y-5 mb-10 ml-12 w-[70%]">
       <div>
         <h1 className="text-md font-bold tracking-wider ml-2">{props.title}</h1>
       </div>
@@ -32,7 +32,7 @@ const Profile = () => {
 const Home: NextPage = () => {
   return (
     <div className="flex w-full">
-      <div className="rounded-2xl flex-row flex bg-[#6544c918] p-12 w-full shadow-xl">
+      <div className="rounded-2xl flex-row flex w-full shadow-xl">
         <div className="flex flex-col ">
           <h1 className="font-bold text-xl flex mb-10">Filters</h1>
           <div className="flex flex-col space-y-3">
