@@ -95,3 +95,22 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.image-custom-small {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+
+.image-custom-medium {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.image-custom-large {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+}
