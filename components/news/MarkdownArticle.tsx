@@ -6,21 +6,35 @@ import remarkRehype from 'remark-rehype';
 import rehypeSanitize from 'rehype-sanitize';
 import rehype2react from 'rehype-react';
 import styles from '../../styles/markdown.module.css';
+import Image from 'next/image';
+import parseMarkdownImages from '../../lib/Markdown/parseMarkdownImages';
 
 interface MarkdownArticleProps {
   markdown: string;
 }
+
 
 const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
   const [content, setContent] = useState<React.ReactNode>(null);
 
   useEffect(() => {
     (async () => {
+      const components = {
+        // @ts-ignore
+        img: (props) => {
+          const width = props.width || 200;
+          const height = props.height || 200;
+          return <Image src={props.src} width={width} height={height} alt={props.alt || ''} />;
+        },
+      };
+
       const processor = unified()
         .use(remarkParse)
+        .use(parseMarkdownImages)
+        // @ts-ignore
         .use(remarkRehype)
         .use(rehypeSanitize)
-        .use(rehype2react, { createElement: React.createElement });
+        .use(rehype2react, { createElement: React.createElement, components });
 
       const file = await processor.process(markdown);
       setContent(file.result as React.ReactNode);

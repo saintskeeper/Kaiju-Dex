@@ -6,7 +6,10 @@
 ```bash
 ls -a test
 ```
-#![test]("../../public/images/ID.png")
+![Test Image](/images/ID.png|800|800)
+
+![Test Image](/images/demo.gif|400|400)
+
 
 
 # example image in markdown
