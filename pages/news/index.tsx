@@ -5,10 +5,8 @@ import MarkdownArticle from "../../components/news/MarkdownArticle";
 import Link from "next/link";
 
 const markdownContent = `
-# Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-nisi ut aliquip ex ea commodo consequat.
+# When Kaiju Dex?
+Kaiju Creators wanted
 `;
 
 const Home: NextPage = () => {
