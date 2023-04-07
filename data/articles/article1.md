@@ -1,17 +1,25 @@
-## test
-
-- [ ]test please
-- insert here
-
-```bash
-ls -a test
-```
-![Test Image](/images/ID.png|800|800)
-
-![Test Image](/images/demo.gif|400|400)
+# When Kaiju Dex?
+// intro here
+- should be done as en episode recap.
+Photo of haruxe and me building
 
 
 
-# example image in markdown
-# Test
-all of your pylons are belong to me
+## Developer Spotlight
+
+
+### Coffee & Weed
+
+
+## Artis spotlight
+
+
+
+## Creator of the week
+
+### Haruxe
+
+
+
+
+[google form](https://forms.gle/nBn1EmwBUkr95Qcp7)

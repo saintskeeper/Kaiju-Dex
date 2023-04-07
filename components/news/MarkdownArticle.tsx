@@ -1,18 +1,17 @@
 // components/MarkdownArticle.tsx
-import React, { useEffect, useState } from 'react';
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeSanitize from 'rehype-sanitize';
-import rehype2react from 'rehype-react';
-import styles from '../../styles/markdown.module.css';
-import Image from 'next/image';
-import parseMarkdownImages from '../../lib/Markdown/parseMarkdownImages';
+import React, { useEffect, useState } from "react";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeSanitize from "rehype-sanitize";
+import rehype2react from "rehype-react";
+import styles from "../../styles/markdown.module.css";
+import Image from "next/image";
+import parseMarkdownImages from "../../lib/Markdown/parseMarkdownImages";
 
 interface MarkdownArticleProps {
   markdown: string;
 }
-
 
 const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
   const [content, setContent] = useState<React.ReactNode>(null);
@@ -22,9 +21,15 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
       const components = {
         // @ts-ignore
         img: (props) => {
-          const width = props.width || 200;
-          const height = props.height || 200;
-          return <Image src={props.src} width={width} height={height} alt={props.alt || ''} />;
+          const width = parseInt(props.width) || 200;
+          const height = parseInt(props.height) || 200;
+          return (
+            <Image
+              {...props}
+              width={width}
+              height={height}
+            />
+          );
         },
       };
 

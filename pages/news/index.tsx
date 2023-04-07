@@ -25,7 +25,7 @@ const Home: NextPage = () => {
               className="rounded-md"
             />
           </div>
-          <div className="p-4 space-y-5">
+          <div className="p-4 space-y-5 ">
             <MarkdownArticle markdown={markdownContent} />
           </div>
         </div>

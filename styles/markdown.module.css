@@ -1,9 +1,4 @@
-.markdown {
-  /* Add your Markdown styles here */
-}
-  /* Add your Markdown styles here */
-
-  .markdown * {
+.markdown * {
   font-family: "Monda", sans-serif;
   color: white;
 }
@@ -53,7 +48,8 @@
   margin-bottom: 1rem;
 }
 
-.markdown ul,.markdown ol {
+.markdown ul,
+.markdown ol {
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding-inline-start: 2rem;
@@ -73,7 +69,8 @@
 }
 
 .markdown code {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
   font-size: 0.875em;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 3px;
@@ -81,7 +78,7 @@
 }
 
 .markdown a {
-  color: #1E90FF;
+  color: #1e90ff;
   text-decoration: none;
 }
 
@@ -101,7 +98,6 @@
   height: 200px;
   object-fit: cover;
 }
-
 
 .image-custom-medium {
   width: 400px;
