@@ -14,13 +14,13 @@ const Home: NextPage = () => {
     <div>
       <Link
         href="/news/articles/article1"
-        className="cursor-pointer flex w-[300px] md:w-[400px] "
+        className="cursor-pointer flex w-[600px] md:w-[600px] "
       >
         <div className="space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md hover:scale-105 duration-200 flex flex-col">
           <div className="relative h-[130px] md:h-[170px]">
             <Image
-              src="/images/city.gif"
-              alt="city"
+              src="/images/Article-1-cover.png"
+              alt="kaijudev"
               fill
               className="rounded-md"
             />

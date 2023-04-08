@@ -1,5 +1,7 @@
 # Wen Kaiju Dex?
 
+![devArticle](/images/Article-1-cover.png)
+
 In the crypto realm, KaijuDex emerged as a brainchild of the esteemed Kaiju King Community members Walt- and Haruxe. The KaijuDex team manifested this platform to address the community's desires and bring to light the extraordinary talents in the Web3 universe. Fellow crypto artists, ingenious developers, and captivating content creators, the team beckons you to join the adventure and share your unique and exceptional abilities.
 
 ## Motivation
@@ -18,9 +20,9 @@ The main purpose of the KaijuDex weekly newsletter is to showcase valuable contr
 
 ### Coffee & Weed
 
-This week, the Dev team is thrilled to spotlight one of the most active developers in the KaijuKingz community, CoffeeandWeed. One of the tools that mutant Kaijus have found particularly useful is https://twitter.com/erc1337_Coffee's mutant kaiju viewer https://mutantsniper.herokuapp.com/. This tool significantly enhances the quality of life for mutant kaiju holders by revealing additional information hidden behind the smart contracts, which function as the "brains" of our Kaijus.
+This week, the Dev team is thrilled to spotlight one of the most active developers in the KaijuKingz community, Coffee & Weed. One of the tools that mutant Kaijus have found particularly useful is his mutant kaiju viewer. This tool significantly enhances the quality of life for mutant kaiju holders by revealing additional information hidden behind the smart contracts, which function as the "brains" of our Kaijus.
 
-In addition to developing tools for the community, CoffeeandWeed can also be found auditing smart contracts in search of vulnerabilities that put user funds at risk. He is an invaluable member of the community, and we appreciate his significant contributions.
+In addition to developing tools for the community, Coffee & Weed can also be found auditing smart contracts in search of vulnerabilities that put user funds at risk. He is an invaluable member of the community, and we appreciate his significant contributions.
 
 - [Twitter:](https://twitter.com/erc1337_Coffee) **Coffee & Weed**
 - [Mutant Sniper:](https://mutantsniper.herokuapp.com) **Mutant Sniper**
