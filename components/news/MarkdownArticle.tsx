@@ -21,15 +21,10 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
       const components = {
         // @ts-ignore
         img: (props) => {
-          const width = props.width || 200;
-          const height = props.height || 200;
+          const width = parseInt(props.width) || 200;
+          const height = parseInt(props.height) || 200;
           return (
-            <Image
-              src={props.src}
-              width={width}
-              height={height}
-              alt={props.alt || ""}
-            />
+            <Image {...props} width={width} height={height} alt={props.alt} />
           );
         },
       };

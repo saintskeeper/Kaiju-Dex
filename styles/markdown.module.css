@@ -4,48 +4,57 @@
 }
 
 .markdown body {
+  /*background-color: #1f2027;*/
   background-color: #1f2027;
+
   font-size: 1.25rem;
 }
 
 .markdown h1 {
-  font-size: 4rem; /* 2 * 2rem (default h1 size) */
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  font-size: 3rem; /* 2 * 2rem (default h1 size) */
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: white;
 }
 
 .markdown h2 {
-  font-size: 3rem; /* 2 * 1.5rem (default h2 size) */
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  font-size: 2rem; /* 2 * 1.5rem (default h2 size) */
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: white;
 }
 
 .markdown h3 {
-  font-size: 2.4rem; /* 2 * 1.2rem (default h3 size) */
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem; /* 2 * 1.2rem (default h3 size) */
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: white;
 }
 
 .markdown h4 {
-  font-size: 2rem; /* 2 * 1rem (default h4 size) */
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  font-size: 0.8rem; /* 2 * 1rem (default h4 size) */
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: white;
 }
 
 .markdown h5 {
-  font-size: 1.6rem; /* 2 * 0.8rem (default h5 size) */
+  font-size: 0.4rem; /* 2 * 0.8rem (default h5 size) */
   margin-top: 1rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .markdown h6 {
   font-size: 1.4rem; /* 2 * 0.7rem (default h6 size) */
   margin-top: 1rem;
   margin-bottom: 1rem;
+  color: white;
 }
 .markdown p {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  color: rgb(151, 151, 151);
 }
 
 .markdown ul,

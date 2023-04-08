@@ -89,7 +89,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                     </p>
                   </Link>
                   <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl"></div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
                       <Link
                         href="/news"
@@ -122,7 +121,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               </div>
             </div>
             <div className="md:ml-[270px] px-5 md:px-12 py-10 flex flex-col space-y-10">
-              <div className="ml-auto flex space-x-5">
+              <div className="flex space-x-5 place-items-center">
                 <Link
                   href="/"
                   className="flex md:hidden flex-col place-items-center text-[#6544c9]cursor-pointer mr-auto px-5"
@@ -135,6 +134,32 @@ function MyApp({ Component, pageProps }: AppProps) {
                     DEV BUILD
                   </p>
                 </Link>
+                <div className="md:hidden flex space-x-4">
+                  <div className="p-3 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl hover:shadow-xl">
+                    <Link
+                      href="/news"
+                      className="flex space-x-4 place-items-center place-content-left"
+                    >
+                      <News className="w-7 fill-zinc-400" />
+                    </Link>
+                  </div>
+                  <div className="p-3 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl hover:shadow-xl">
+                    <Link
+                      href={"/profile"}
+                      className="flex space-x-4 place-items-center place-content-left"
+                    >
+                      <PersonFill className="w-7 fill-zinc-400" />
+                    </Link>
+                  </div>
+                  <div className="p-3 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl hover:shadow-xl">
+                    <Link
+                      href="/help"
+                      className="flex space-x-4 place-items-center place-content-left"
+                    >
+                      <Question className="w-7 fill-zinc-400" />
+                    </Link>
+                  </div>
+                </div>
                 {/* <div className="w-[20rem] bg-[#1A1B1F] h-11 rounded-lg py-1 px-3 flex my-auto shadow-xl">
                   <SearchAlt className="w-5 my-auto" />
                   <input
@@ -143,9 +168,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                     className="w-[85%] mx-auto flex bg-transparent border-none outline-none text-sm"
                   />
                 </div> */}
-                <ConnectButton showBalance={false} />
+                {/* <ConnectButton showBalance={false} /> */}
               </div>
-              <div className="mb-10" />
+              <div className="mb-5" />
               <Component {...pageProps} />
             </div>
           </div>
