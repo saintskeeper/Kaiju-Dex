@@ -1,4 +1,4 @@
-# When Kaiju Dex?
+# Wen Kaiju Dex?
 
 In the crypto realm, KaijuDex emerged as a brainchild of the esteemed Kaiju King Community members Walt- and Haruxe. The KaijuDex team manifested this platform to address the community's desires and bring to light the extraordinary talents in the Web3 universe. Fellow crypto artists, ingenious developers, and captivating content creators, the team beckons you to join the adventure and share your unique and exceptional abilities.
 
