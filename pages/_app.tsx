@@ -89,7 +89,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                     </p>
                   </Link>
                   <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl"></div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
                       <Link
                         href="/news"
@@ -145,7 +144,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </div> */}
                 <ConnectButton showBalance={false} />
               </div>
-              <div className="mb-10" />
+              <div className="mb-5" />
               <Component {...pageProps} />
             </div>
           </div>

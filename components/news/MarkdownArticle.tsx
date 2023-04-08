@@ -24,11 +24,7 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
           const width = parseInt(props.width) || 200;
           const height = parseInt(props.height) || 200;
           return (
-            <Image
-              {...props}
-              width={width}
-              height={height}
-            />
+            <Image {...props} width={width} height={height} alt={props.alt} />
           );
         },
       };
