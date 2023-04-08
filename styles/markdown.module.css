@@ -1,0 +1,121 @@
+.markdown * {
+  font-family: "Monda", sans-serif;
+  color: white;
+}
+
+.markdown body {
+  /*background-color: #1f2027;*/
+  background-color: #1f2027;
+
+  font-size: 1.25rem;
+}
+
+.markdown h1 {
+  font-size: 3rem; /* 2 * 2rem (default h1 size) */
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: white;
+}
+
+.markdown h2 {
+  font-size: 2rem; /* 2 * 1.5rem (default h2 size) */
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: white;
+}
+
+.markdown h3 {
+  font-size: 1.5rem; /* 2 * 1.2rem (default h3 size) */
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: white;
+}
+
+.markdown h4 {
+  font-size: 0.8rem; /* 2 * 1rem (default h4 size) */
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: white;
+}
+
+.markdown h5 {
+  font-size: 0.4rem; /* 2 * 0.8rem (default h5 size) */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.markdown h6 {
+  font-size: 1.4rem; /* 2 * 0.7rem (default h6 size) */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+.markdown p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: rgb(151, 151, 151);
+}
+
+.markdown ul,
+.markdown ol {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-inline-start: 2rem;
+}
+
+.markdown blockquote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.markdown pre {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.markdown code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
+  font-size: 0.875em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+}
+
+.markdown a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+}
+
+.markdown img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-custom-small {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.image-custom-medium {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.image-custom-large {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+}

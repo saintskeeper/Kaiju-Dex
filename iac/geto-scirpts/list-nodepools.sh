@@ -1,4 +1,4 @@
 gcloud container node-pools list \
-	--project kaiju-dex \
+	--project $PROJECT \
   --cluster my-affordable-cluster \
   --region us-central1

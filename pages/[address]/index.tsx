@@ -1,11 +1,6 @@
-import type { NextPage } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { Discord, Twitter } from "styled-icons/bootstrap";
-import { Crown } from "styled-icons/boxicons-regular";
-import { Code } from "@styled-icons/fa-solid/Code";
-import { Link2 } from "styled-icons/evaicons-solid";
-import { useAccount, useEnsName } from "wagmi";
+import type { NextPage } from 'next';
+import { useAccount, useEnsName } from 'wagmi';
+import ProfileCard from '../../components/profiles/ProfileCard';
 
 const Home: NextPage = () => {
   const { address } = useAccount();
@@ -14,93 +9,40 @@ const Home: NextPage = () => {
     isError: ensError,
     isLoading: ensLoading,
   } = useEnsName({ address: address });
+
   return (
-    <div className="space-y-5">
-      <div className="bg-[#6544c918] rounded-lg p-12 shadow-xl flex-col space-y-5">
-        <div className="flex flex-col place-items-center md:flex-row space-x-12">
-          <Image
-            height="200"
-            width="200"
-            src="/images/demo.gif"
-            className="rounded-xl my-auto"
-            alt="demo"
-          />
-          <div className="py-2 space-y-3 flex flex-col relative">
-            <div className="flex place-items-center space-x-3">
-              <Code className="w-6 h-6" />
-              <p className="text-2xl font-bold tracking-wider">
-                {ensLoading ? "..." : ensError ? address?.slice(0, 5) : ens}
-              </p>
-            </div>
-            <div className="flex space-x-3">
-              <Link
-                href={"https://www.etherscan.com/" + address}
-                className="flex space-x-2 outline outline-1 outline-zinc-500 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
-              >
-                <Link2 className="w-3 h-3" />
-                <p>Etherscan</p>
-              </Link>
-              <Link
-                href={"https://www.twitter.com/haruxeETH"}
-                className="flex space-x-2 outline outline-1 outline-zinc-500 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
-              >
-                <Twitter className="w-3 h-3" />
-                <p>Twitter</p>
-              </Link>
-              <Link
-                href={"/"}
-                className="flex space-x-2 outline outline-1 outline-zinc-500 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
-              >
-                <Discord className="w-3 h-3" />
-                <p>Discord</p>
-              </Link>
-            </div>
-            <p className="text-md text-gray-400 tracking-wide">
-              Proud member of the KaijuKingz community and an ethical
-              hacker/whitehat. I use my expertise in cybersecurity to help
-              protect the community and keep us all safe from bad actors. With a
-              passion for cutting-edge technology and a strong commitment to
-              ethical principles, I&apos;m always looking for ways to improve the
-              security of the NFT space and keep KaijuKingz ahead of the game.
-              Whether its identifying vulnerabilities, implementing new
-              security protocols, or educating others on best practices, Im
-              always working hard to ensure that the community can thrive and
-              grow without worrying about security threats. So if you&apos;re looking
-              for a dedicated cybersecurity expert whos always looking out for
-              the greater good, look no further. (GLPT carry)
-            </p>
-            <div className="flex space-x-2 ">
-              <Crown className="w-5" />
-              <p className=" text-md text-gray-200 tracking-wider">
-                Since 03.22.22
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-[#6544c918] shadow-xl rounded-lg p-12  space-y-4">
-        <h1 className="text-2xl font-bold">What I Offer:</h1>
-        <p className="text-md">
-          As a software developer, I offer a range of services that can help
-          businesses and organizations ensure the security and reliability of
-          their blockchain-based applications. My main focus is on being a
-          whitehat/auditor and identifying vulnerabilities in Solidity EVM smart
-          contracts to prevent any malicious activity.
-          <br />
-          <br />
-          In addition to my auditing skills, I&apos;m also an experienced web
-          developer who can create amazing websites from scratch and integrate
-          full-stack NFT projects with ease. Whether you need a simple static
-          website or a complex e-commerce platform, I can build it for you.
-          <br />
-          <br />
-          So, if you&apos;re looking for someone who can help you ensure the
-          security of your blockchain-based apps or create an amazing website or
-          NFT project, don&apos;t hesitate to reach out. I&apos;m always up for
-          a new challenge and ready to help you bring your ideas to life.
-          Contact me on Discord or Twitter for a quote. (GLPT GIGACHAD)
-        </p>
-      </div>
+    <div>
+    <ProfileCard
+    username="Walt-"
+    address={address || ''}
+    ens={ens || ''}
+    ensLoading={ensLoading}
+    ensError={ensError}
+    imagePath="/images/profiles/Animated-Walt-Final-Transform.gif"
+    altText="demo"
+    etherscanUrl={`https://etherscan.io`}
+    twitterUrl="https://twitter.com/WallyTheGuru"
+    discordUrl="https://discord.gg/kaiju-kingz"
+    memberSince="Since 09.01.22"
+    description="Last September, I stumbled upon the Kaiju Kings, a warm and welcoming community that instantly felt like home. As a developer, I found the ecosystem to be incredibly robust, providing an excellent environment for collaboration and growth, especially during this Crypto Winter. I've been affectionately dubbed the Ice King within the community, thanks to my unique Augmented Kaiju #2295, which I'm particularly proud of.
+    If you ever want to chat about technology, development, or just life in general, don't hesitate to reach out on Discord! I'm always eager to connect with fellow enthusiasts and share knowledge and ideas, or simply enjoy a good conversation. Let's continue to nurture this wonderful community and build together."
+    offer="Throughout my career, I've been deeply involved in core infrastructure and large-scale systems. Recently, I've embarked on a thrilling journey into the world of Web3, focusing mainly on running blockchains at scale using Kubernetes. It's quite a surprising twist that I've found myself working on Next's front end and components, but I'm loving every moment of it! I wholeheartedly believe that crypto is the future, and I'm passionate about securing and automating blockchains. If you ever need assistance with cloud automation or large-scale systems, please don't hesitate to reach out. Lately, I've been spending most of my time working with AWS and GCP, so I'm well-equipped to help you navigate the cloud environment"
+  />
+    <ProfileCard
+      username="Haruxe"
+      address={address || ''}
+      ens={ens || ''}
+      ensLoading={ensLoading}
+      ensError={ensError}
+      imagePath="/images/profiles/Haruxe.png"
+      altText="demo"
+      etherscanUrl={`https://etherscan.io/address/0x60FF4545C6e674fD182990F7A66143002Fa3A03C`}
+      twitterUrl="https://www.twitter.com/haruxeETH"
+      discordUrl="https://discord.gg/kaiju-kingz"
+      memberSince="Since 03.22.22"
+      description="Proud member of the KaijuKingz community and an ethical hacker/whitehat. I use my expertise in cybersecurity to help protect the community and keep us all safe from bad actors. With a passion for cutting-edge technology and a strong commitment to ethical principles, I&apos;m always looking for ways to improve the security of the NFT space and keep KaijuKingz ahead of the game. Whether its identifying vulnerabilities, implementing new security protocols, or educating others on best practices, Im always working hard to ensure that the community can thrive and grow without worrying about security threats. So if you&apos;re looking for a dedicated cybersecurity expert whos always looking out for the greater good, look no further. (GLPT carry)"
+      offer="As a software developer, I offer a range of services that can help businesses and organizations ensure the security and reliability of their blockchain-based applications. My main focus is on being a whitehat/auditor and identifying vulnerabilities in Solidity EVM smart contracts to prevent any malicious activity. In addition to my auditing skills, I&apos;m also an experienced web developer who can create amazing websites from scratch and integrate full-stack NFT projects with ease. Whether you need a simple static website or a complex e-commerce platform, I can build it for you. So, if you&apos;re looking for someone who can help you ensure the security of your blockchain-based apps or create an amazing website or NFT project, don&apos;t hesitate to reach out. I&apos;m always up for a new challenge and ready to help you bring your ideas to life. Contact me on Discord or Twitter for a quote. (GLPT GIGACHAD)"
+    />
     </div>
   );
 };

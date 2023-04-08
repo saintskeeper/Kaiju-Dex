@@ -1,25 +1,35 @@
+// pages/news/index.tsx
 import type { NextPage } from "next";
 import Image from "next/image";
+import MarkdownArticle from "../../components/news/MarkdownArticle";
+import Link from "next/link";
+
+const markdownContent = `
+### Wen Kaiju Dex?
+Kaiju Creators wanted
+`;
 
 const Home: NextPage = () => {
   return (
     <div>
-      <div className="w-[300px] md:w-[400px] space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md">
-        <div className="relative h-[130px] md:h-[170px]">
-          <Image src="/images/city.gif" alt="city" fill />
+      <Link
+        href="/news/articles/article1"
+        className="cursor-pointer flex w-[600px] md:w-[600px] "
+      >
+        <div className="space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md hover:scale-105 duration-200 flex flex-col">
+          <div className="relative h-[250px] w-[250px]">
+            <Image
+              src="/images/Article-1-cover.png"
+              alt="kaijudev"
+              fill
+              className="rounded-md"
+            />
+          </div>
+          <div className="p-5 space-y-5 ">
+            <MarkdownArticle markdown={markdownContent} />
+          </div>
         </div>
-        <div className="p-4 space-y-5">
-          <h1 className="font-black text-xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </h1>
-          <p className="text-sm text-zinc-300">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur...
-          </p>
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };

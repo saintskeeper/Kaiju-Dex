@@ -14,17 +14,9 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import { News, SearchAlt } from "styled-icons/boxicons-regular";
-import {
-  CatchingPokemon,
-  Dashboard,
-  Explore,
-} from "styled-icons/material-twotone";
+import { CatchingPokemon } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
-import {
-  PersonFill,
-  Question,
-  QuestionCircleFill,
-} from "styled-icons/bootstrap";
+import { PersonFill, Question } from "styled-icons/bootstrap";
 import Image from "next/image";
 
 // custom components
@@ -81,7 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           )}
         >
           <div className="place-items-center mx-auto max-w-[1500px]">
-            <div className="flex relative">
+            <div className="relative hidden md:flex">
               <div className="fixed h-[100vh] flex-row text-white flex space-x-5 z-20">
                 <div className="flex flex-col text-md bg-[#1F2027] border-r border-zinc-700 p-4 place-items-left place-content-left pr-12">
                   <Link
@@ -99,29 +91,20 @@ function MyApp({ Component, pageProps }: AppProps) {
                   <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
                       <Link
-                        href="/explore"
-                        className="flex space-x-4 place-content-left place-items-center "
-                      >
-                        <Dashboard className="w-9" />
-                        <div className="">Dashboard</div>
-                      </Link>
-                    </div>
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl ">
-                      <Link
-                        href="/explore"
-                        className="flex space-x-4 place-items-center place-content-left"
-                      >
-                        <Explore className="w-9 fill-zinc-400" />
-                        <div className="text-zinc-400">Explore</div>
-                      </Link>
-                    </div>
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
                         href="/news"
                         className="flex space-x-4 place-items-center place-content-left"
                       >
                         <News className="w-9 fill-zinc-400" />
                         <div className="text-zinc-400">News</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                      <Link
+                        href={"/profile"}
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <PersonFill className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">Profile</div>
                       </Link>
                     </div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
@@ -133,31 +116,61 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <div className="text-zinc-400">Help</div>
                       </Link>
                     </div>
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
-                        href={"/" + address}
-                        className="flex space-x-4 place-items-center place-content-left"
-                      >
-                        <PersonFill className="w-9 fill-zinc-400" />
-                        <div className="text-zinc-400">Profile</div>
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="ml-[270px] px-12 py-10 flex flex-col space-y-10">
-              <div className="ml-auto flex space-x-5">
-                <div className="w-[20rem] bg-[#1A1B1F] h-11 rounded-lg py-1 px-3 flex my-auto shadow-xl">
+            <div className="md:ml-[270px] px-5 md:px-12 py-10 flex flex-col space-y-10">
+              <div className="flex space-x-5 place-items-center">
+                <Link
+                  href="/"
+                  className="flex md:hidden flex-col place-items-center text-[#6544c9]cursor-pointer mr-auto px-5"
+                >
+                  <div className="flex space-x-1 ">
+                    <CatchingPokemon className="w-5 my-auto fill-[#6544c9] rotate-12" />
+                    <div className="text-xl font-black ">KAIJUDEX</div>
+                  </div>
+                  <p className="font-bold text-xs ml-auto text-zinc-500">
+                    DEV BUILD
+                  </p>
+                </Link>
+                <div className="md:hidden flex space-x-4">
+                  <div className="p-3 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl hover:shadow-xl">
+                    <Link
+                      href="/news"
+                      className="flex space-x-4 place-items-center place-content-left"
+                    >
+                      <News className="w-7 fill-zinc-400" />
+                    </Link>
+                  </div>
+                  <div className="p-3 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl hover:shadow-xl">
+                    <Link
+                      href={"/profile"}
+                      className="flex space-x-4 place-items-center place-content-left"
+                    >
+                      <PersonFill className="w-7 fill-zinc-400" />
+                    </Link>
+                  </div>
+                  <div className="p-3 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl hover:shadow-xl">
+                    <Link
+                      href="/help"
+                      className="flex space-x-4 place-items-center place-content-left"
+                    >
+                      <Question className="w-7 fill-zinc-400" />
+                    </Link>
+                  </div>
+                </div>
+                {/* <div className="w-[20rem] bg-[#1A1B1F] h-11 rounded-lg py-1 px-3 flex my-auto shadow-xl">
                   <SearchAlt className="w-5 my-auto" />
                   <input
                     type={"text"}
                     placeholder="Search"
                     className="w-[85%] mx-auto flex bg-transparent border-none outline-none text-sm"
                   />
-                </div>
-                <ConnectButton showBalance={false} />
+                </div> */}
+                {/* <ConnectButton showBalance={false} /> */}
               </div>
+              <div className="mb-5" />
               <Component {...pageProps} />
             </div>
           </div>
