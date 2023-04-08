@@ -15,6 +15,7 @@ The main purpose of the KaijuDex weekly newsletter is to showcase valuable contr
 ## Developer
 
 ![coffe-and-weed](/images/profiles/coffee-and-weed.jpeg|200|200)
+
 ### Coffee & Weed
 
 This week, the Dev team is thrilled to spotlight one of the most active developers in the KaijuKingz community, CoffeeandWeed. One of the tools that mutant Kaijus have found particularly useful is https://twitter.com/erc1337_Coffee's mutant kaiju viewer https://mutantsniper.herokuapp.com/. This tool significantly enhances the quality of life for mutant kaiju holders by revealing additional information hidden behind the smart contracts, which function as the "brains" of our Kaijus.
@@ -23,8 +24,10 @@ In addition to developing tools for the community, CoffeeandWeed can also be fou
 
 - [Twitter:](https://twitter.com/erc1337_Coffee) **Coffee & Weed**
 
-## Artis
+## Artist
+
 ![neckbord](/images/profiles/neckbord.jpeg|200|200)
+
 ### Neckbord
 
 Neckbords has been a creative force within the community for quite some time, delighting members with animated Kaij, such as the remarkable transformation of Walt's Kaiju #2295 into the Ice King (featured above). Neckbords is an active participant in the Kaiju Art Discord community and has garnered attention for his captivating work on both his Instagram account and with Lil Oddities.
@@ -35,7 +38,9 @@ We're excited to showcase Neckbords's artistic creations and look forward to pot
 - [Instagram:](https://www.instagram.com/little.drawn.oddities) **little.drawn.oddities**
 
 ## Creator of the week
+
 ![neckbord](/images/profiles/GB.jpeg|200|200)
+
 ### GB£ (@HeyYoGB)
 
 I discovered GB's profile thanks to a longtime community member, QRS. GB has an outstanding Substack that covers vital topics such as avoiding burnout and mastering the art of maintaining an engaging Twitter presence. I'm eager to implement his strategies in the coming weeks, and I'm sure they'll prove to be invaluable for enhancing my social media presence and overall well-being in the crypto world.
