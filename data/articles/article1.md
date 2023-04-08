@@ -23,6 +23,7 @@ This week, the Dev team is thrilled to spotlight one of the most active develope
 In addition to developing tools for the community, CoffeeandWeed can also be found auditing smart contracts in search of vulnerabilities that put user funds at risk. He is an invaluable member of the community, and we appreciate his significant contributions.
 
 - [Twitter:](https://twitter.com/erc1337_Coffee) **Coffee & Weed**
+- [Mutant Sniper:](https://mutantsniper.herokuapp.com) **Mutant Sniper**
 
 ## Artist
 
@@ -43,16 +44,17 @@ We're excited to showcase Neckbords's artistic creations and look forward to pot
 
 ### GB£ (@HeyYoGB)
 
-I discovered GB's profile thanks to a longtime community member, QRS. GB has an outstanding Substack that covers vital topics such as avoiding burnout and mastering the art of maintaining an engaging Twitter presence. I'm eager to implement his strategies in the coming weeks, and I'm sure they'll prove to be invaluable for enhancing my social media presence and overall well-being in the crypto world.
+The KaijuDex team discovered GB's profile thanks to a longtime community member, QRS. GB has an outstanding Substack that covers vital topics such as avoiding burnout and mastering the art of maintaining an engaging Twitter presence.  The team is eager to implement his strategies in the coming weeks, and we are sure they'll prove to be invaluable for enhancing my social media presence and overall well-being in the crypto world.
 
 - [Twitter:](https://twitter.com/HeyYoGB) **HeyYoGB**
 - [Substack:](https://heyyogb.substack.com/) **HeyYoGB**
+
 
 # Dev Log
 
 ### The KaijuDex team wants to hear from you!
 
-Haruxe and I are on a mission to deliver weekly bite-sized value to the broader KaijuKingz community. The team has compiled a survey featuring a concise list of requested features. If this piques your interest, we kindly ask you to spare a few minutes and complete our survey, which can be accessed here. Your input is invaluable to us, and we appreciate your contribution to enhancing the KaijuKingz experience for all.
+The Kaiju Dex team is on a mission to deliver weekly bite-sized value to the broader KaijuKingz community. The team has compiled a survey featuring a concise list of requested features. If this piques your interest, we kindly ask you to spare a few minutes and complete our survey, which can be accessed here. Your input is invaluable to us, and we appreciate your contribution to enhancing the KaijuKingz experience for all.
 
 - [Form:](https://forms.gle/nBn1EmwBUkr95Qcp7) Feedback
 
