@@ -5,7 +5,7 @@ import MarkdownArticle from "../../components/news/MarkdownArticle";
 import Link from "next/link";
 
 const markdownContent = `
-## Wen Kaiju Dex?
+### Wen Kaiju Dex?
 Kaiju Creators wanted
 `;
 
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         className="cursor-pointer flex w-[600px] md:w-[600px] "
       >
         <div className="space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md hover:scale-105 duration-200 flex flex-col">
-          <div className="relative h-[130px] md:h-[170px]">
+          <div className="relative h-[250px] w-[250px]">
             <Image
               src="/images/Article-1-cover.png"
               alt="kaijudev"
