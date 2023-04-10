@@ -6,7 +6,6 @@ import remarkRehype from "remark-rehype";
 import rehypeSanitize from "rehype-sanitize";
 import rehype2react from "rehype-react";
 import styles from "../../styles/markdown.module.css";
-import Image from "next/image";
 import parseMarkdownImages from "../../lib/Markdown/parseMarkdownImages";
 
 interface MarkdownArticleProps {
@@ -21,10 +20,8 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
       const components = {
         // @ts-ignore
         img: (props) => {
-          const width = parseInt(props.width) || 200;
-          const height = parseInt(props.height) || 200;
           return (
-            <Image {...props} width={width} height={height} alt={props.alt} />
+            <img {...props} alt={props.alt} />
           );
         },
       };
