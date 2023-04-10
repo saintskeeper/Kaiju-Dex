@@ -18,3 +18,14 @@ repos:
     -   id: eslint
         additional_dependencies:
         -   eslint@8.36.0
+-   repo: local
+    hooks:
+    -   id: pre-build
+        name: yarn build
+        entry: bash -c "yarn build"
+        language: system
+        files: package.json
+        stages: [commit]
+        pass_filenames: false
+        verbose: true
+        always_run: true
