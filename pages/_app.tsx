@@ -20,7 +20,9 @@ import { PersonFill, Question } from "styled-icons/bootstrap";
 import Image from "next/image";
 
 // custom components
-
+// Firebase analytics
+import usePageViewTracking from "../components/analytics/Analytics"
+import { useRouter } from "next/router";
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
 
 const connectors = connectorsForWallets([
@@ -37,6 +39,11 @@ const wagmiClient = createClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  // analytics
+  const router = useRouter();
+  const pageName = router.route;
+  usePageViewTracking(pageName);
+
   const { isConnected, address } = useAccount();
   return (
     <div className="">
