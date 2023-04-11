@@ -1,5 +1,5 @@
 import { initializeApp, getApps } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,7 +13,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
-const analytics = getAnalytics(app);
+
+// Initialize analytics only if in browser environment and supported
+async function initializeFirebaseAnalytics() {
+  if (typeof window !== "undefined") {
+    const analyticsIsSupported = await isSupported();
+    if (analyticsIsSupported) {
+      const analyticsInstance = getAnalytics(app);
+      return analyticsInstance;
+    }
+  }
+  return null;
+}
+
+const analytics = initializeFirebaseAnalytics();
 
 // Export analytics
 export { analytics };
