@@ -13,8 +13,11 @@ import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
 import "@rainbow-me/rainbowkit/styles.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-import { News, SearchAlt } from "styled-icons/boxicons-regular";
-import { CatchingPokemon } from "styled-icons/material-twotone";
+import { News, Paperclip, SearchAlt } from "styled-icons/boxicons-regular";
+import {
+  CatchingPokemon,
+  DocumentScanner,
+} from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 import { PersonFill, Question } from "styled-icons/bootstrap";
 import Image from "next/image";
@@ -78,10 +81,17 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <div className="flex flex-col text-md bg-[#1F2027] border-r border-zinc-700 p-4 place-items-left place-content-left pr-12">
                   <Link
                     href="/"
-                    className="flex flex-col place-items-center text-[#6544c9]cursor-pointer mr-auto my-[50px] px-5"
+                    className="flex flex-col place-items-center text-[#6544c9] cursor-pointer my-[50px]"
                   >
-                    <div className="flex space-x-1 ">
-                      <CatchingPokemon className="w-8 my-auto fill-[#6544c9] rotate-12" />
+                    <div className="flex space-x-2 ">
+                      {/* <CatchingPokemon className="w-8 my-auto fill-[#6544c9] rotate-12" /> */}
+                      <Image
+                        className="w-8 my-auto rounded-full"
+                        src="/images/icons/KaijuDex-02.png"
+                        alt="logo"
+                        width="50"
+                        height="50"
+                      />
                       <div className="text-3xl font-black ">KAIJUDEX</div>
                     </div>
                     <p className="font-bold text-xs ml-auto text-zinc-500">
@@ -114,6 +124,15 @@ function MyApp({ Component, pageProps }: AppProps) {
                       >
                         <Question className="w-9 fill-zinc-400" />
                         <div className="text-zinc-400">Help</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                      <Link
+                        href="https://docs.kaijudex.app/"
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <Paperclip className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">Docs</div>
                       </Link>
                     </div>
                   </div>
