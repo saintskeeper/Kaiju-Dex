@@ -22,7 +22,7 @@ const Metadata = () => {
       />
       <meta
         property="og:image"
-        content="https://https://kaijudex.app/kaijudex-varient-2.png"
+        content="https://kaijudex.app/kaijudex-varient-2.png"
       />
 
       {/* Twitter meta tags */}
@@ -34,7 +34,7 @@ const Metadata = () => {
       />
       <meta
         name="twitter:image"
-        content="https://yourwebsite.com/path/to/your/image.jpg"
+        content="https://kaijudex.app/kaijudex-varient-2.png"
       />
     </Head>
   );
