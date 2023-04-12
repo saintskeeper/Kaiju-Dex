@@ -1,11 +1,6 @@
 import type { NextPage } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { Discord, Twitter } from "styled-icons/bootstrap";
-import { Crown } from "styled-icons/boxicons-regular";
-import { Code } from "@styled-icons/fa-solid/Code";
-import { Link2 } from "styled-icons/evaicons-solid";
 import { useAccount, useEnsName } from "wagmi";
+import SocialMediaLinks from "../../components/help/SocialMediaLinks";
 
 const Home: NextPage = () => {
   const { address } = useAccount();
@@ -14,10 +9,12 @@ const Home: NextPage = () => {
     isError: ensError,
     isLoading: ensLoading,
   } = useEnsName({ address: address });
+
+
   return (
     <div className="space-y-5">
       <div className="rounded-lg space-y-4">
-        <div className=" text-md text-gray-400 tracking-wide">
+        <div className="text-md text-gray-400 tracking-wide">
           Welcome to Kaiju-Dex! We&apos;re thrilled to have you here, and we
           want to thank you for checking it out.
           <br />
@@ -30,19 +27,26 @@ const Home: NextPage = () => {
           <br />
           If you have any questions or feedback about the site, please
           don&apos;t hesitate to reach out to{" "}
-          <a
-            href="https://www.twitter.com/haruxeETH"
+          <SocialMediaLinks
+            username="WallyTheGuru"
+            platform="twitter"
             className="text-blue-400 hover:text-blue-300 duration-200"
-            target={"_blank"}
-          >
-            haruxeETH
-          </a>{" "}
+          />{" "}
+          or{" "}
+          <SocialMediaLinks
+            username="haruxeETH"
+            platform="twitter"
+            className="text-blue-400 hover:text-blue-300 duration-200"
+          />{" "}
           on Twitter. We&apos;re always happy to hear from our users and will do
           our best to address any concerns or suggestions you may have.
-        </div>
+      </div>
       </div>
     </div>
   );
 };
+
+
+
 
 export default Home;
