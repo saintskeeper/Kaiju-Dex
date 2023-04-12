@@ -14,7 +14,7 @@ The main purpose of the KaijuDex weekly newsletter is to showcase valuable contr
 
 ## Developer
 
-![coffe-and-weed](/images/profiles/coffee-and-weed.jpeg|200|200)
+![coffe-and-weed](/images/profiles/coffee-and-weed.jpeg "200, 200")
 
 ### Coffee & Weed
 
@@ -27,7 +27,7 @@ In addition to developing tools for the community, Coffee & Weed can also be fou
 
 ## Artist
 
-![neckbord](/images/profiles/neckbord.jpeg|200|200)
+![neckbord](/images/profiles/neckbord.jpeg "200, 200")
 
 ### Neckbord
 
@@ -39,8 +39,7 @@ We're excited to showcase Neckbords's artistic creations and look forward to pot
 - [Instagram:](https://www.instagram.com/little.drawn.oddities) **little.drawn.oddities**
 
 ## Creator of the week
-
-![neckbord](/images/profiles/GB.jpeg|200|200)
+![GB](/images/profiles/GB.jpeg "200, 200")
 
 ### GB£ (@HeyYoGB)
 
@@ -52,7 +51,7 @@ The KaijuDex team discovered GB's profile thanks to a longtime community member,
 
 # Dev Log
 
-![devArticle](/images/Article-1-cover.png)
+![devArticle](/images/Article-1-cover.png "800, 800")
 
 ### The KaijuDex team wants to hear from you!
 
