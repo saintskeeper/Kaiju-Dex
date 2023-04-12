@@ -26,6 +26,7 @@ import Image from "next/image";
 // Firebase analytics
 import usePageViewTracking from "../components/analytics/Analytics"
 import { useRouter } from "next/router";
+import Metadata from "../components/meta/metadata"
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
 
 const connectors = connectorsForWallets([
@@ -50,17 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { isConnected, address } = useAccount();
   return (
     <div className="">
-      <Head>
-        <meta property="og:title" content="WKaijuDex" key="ogtitle" />
-        <meta
-          property="og:description"
-          content="Find the perfect match for your artistry or engineering skills with Kaiju-Dex: The ultimate platform for the KaijuKingz community."
-          key="ogdesc"
-        />
-        <meta property="og:image" content="" key="ogimage" />
-        <title>KaijuDex</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      </Head>
+      <Metadata/>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider
           chains={chains}
