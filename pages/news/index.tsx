@@ -9,27 +9,56 @@ const markdownContent = `
 Kaiju Creators wanted
 `;
 
-const Home: NextPage = () => {
+const markdownContent2 = `
+### The Kaiju Renaissance
+Artists spotlight and community initiatives
+`;
+
+function ArticleComponent(props: any) {
   return (
-    <div>
-      <Link
-        href="/news/articles/article1"
-        className="cursor-pointer flex w-[600px] md:w-[600px] "
-      >
+    <>
+      <Link href={props.link} className="cursor-pointer flex w-[250px] ">
         <div className="space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md hover:scale-105 duration-200 flex flex-col">
           <div className="relative h-[250px] w-[250px]">
+            {props.new && (
+              <Image
+                src={"/images/new_icon.png"}
+                alt="new"
+                className="absolute top-2 left-2 z-10 "
+                width={50}
+                height={50}
+              />
+            )}
             <Image
-              src="/images/Article-1-cover.png"
-              alt="kaijudev"
+              src={props.image}
+              alt="article preview"
               fill
               className="rounded-md"
             />
           </div>
-          <div className="p-5 space-y-5 ">
-            <MarkdownArticle markdown={markdownContent} />
+          <div className="px-2 py-2 mx-auto text-center w-[250px]">
+            <MarkdownArticle markdown={props.data} />
           </div>
         </div>
       </Link>
+    </>
+  );
+}
+
+const Home: NextPage = () => {
+  return (
+    <div className="flex space-x-10">
+      <ArticleComponent
+        image={"/images/article2/kaijudex-mini-kaiju.png"}
+        data={markdownContent2}
+        link={"/news/articles/article2"}
+        new
+      />
+      <ArticleComponent
+        image={"/images/Article-1-cover.png"}
+        link={"/news/articles/article1"}
+        data={markdownContent}
+      />
     </div>
   );
 };
