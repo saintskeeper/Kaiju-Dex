@@ -10,8 +10,8 @@ Kaiju Creators wanted
 `;
 
 const markdownContent2 = `
-### Builders Be Building
-Artists spotlight community initiatives!
+### The Kaiju Renaissance
+Artists spotlight and community initiatives
 `;
 
 function ArticleComponent(props: any) {
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
   return (
     <div className="flex space-x-10">
       <ArticleComponent
-        image={"/images/article2/Kaiju-Dev-High-Quality-01.png"}
+        image={"/images/article2/kaijudex-mini-kaiju.png"}
         data={markdownContent2}
         link={"/news/articles/article2"}
         new

@@ -1,10 +1,11 @@
-# Builders Be Building
+# The Kaiju Renaissance
 
-![Builders Be Building ](/images/article2/Kaiju-Dev-High-Quality-01.png "600, 600")
+![The Kaiju Renaissance ](/images/article2/kaijudex-mini-kaiju.png "600, 600")
 
 This week has been nothing short of action-packed for the Kaiju Kings! One of the most notable events is the community initiative focused on supporting artists. Twitter has been flooded with awe-inspiring community augments, as artists vie for the coveted opportunity to add their art to Augments Season three. Dots, the founder of Kaiju Kings, has also been at the forefront, championing fellow creators and extending support to other talented individuals within the community.
 
 # Community Spotlights
+As the bull market approaches, the KaijuDex team remains dedicated to showcasing the finest talent in the space. This week, we are honored to feature three exceptional creators who are at the forefront, ushering in the illustrious Kaiju Golden Age.
 
 ## Developer 💻
 
