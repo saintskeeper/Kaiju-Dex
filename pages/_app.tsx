@@ -24,9 +24,9 @@ import Image from "next/image";
 
 // custom components
 // Firebase analytics
-import usePageViewTracking from "../components/analytics/Analytics"
+import usePageViewTracking from "../components/analytics/Analytics";
 import { useRouter } from "next/router";
-import Metadata from "../components/meta/metadata"
+import Metadata from "../components/meta/metadata";
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
 
 const connectors = connectorsForWallets([
@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { isConnected, address } = useAccount();
   return (
     <div className="">
-      <Metadata/>
+      <Metadata />
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider
           chains={chains}
@@ -93,7 +93,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                       <div className="text-3xl font-black ">KAIJUDEX</div>
                     </div>
                     <p className="font-bold text-xs ml-auto text-zinc-500">
-                      DEV BUILD
+                      v0.1.0
                     </p>
                   </Link>
                   <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
@@ -113,15 +113,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                       >
                         <PersonFill className="w-9 fill-zinc-400" />
                         <div className="text-zinc-400">Profile</div>
-                      </Link>
-                    </div>
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
-                        href="/help"
-                        className="flex space-x-4 place-items-center place-content-left"
-                      >
-                        <Question className="w-9 fill-zinc-400" />
-                        <div className="text-zinc-400">Help</div>
                       </Link>
                     </div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
@@ -170,10 +161,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                   </div>
                   <div className="p-3 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl hover:shadow-xl">
                     <Link
-                      href="/help"
+                      href="https://docs.kaijudex.app/"
                       className="flex space-x-4 place-items-center place-content-left"
                     >
-                      <Question className="w-7 fill-zinc-400" />
+                      <Paperclip className="w-7 fill-zinc-400" />
                     </Link>
                   </div>
                 </div>
