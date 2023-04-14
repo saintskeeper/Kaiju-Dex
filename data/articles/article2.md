@@ -41,7 +41,7 @@ In short: Pursue greatness. Don't hesitate.
 
 ### Wiklander
 
-![Wiklander](/images/article2/Wiklander-baby-Kaiju.jpeg "200, 200")
+![Wiklander](/images/article2/wiklander-in-motion.gif "200, 200")
 
 This week's Creator of the Week is the legendary pixel artist Wiklander! As a long-time Kaiju holder and member of the Throne Room, Wiklander can be found in Sorashima, consistently crafting new and captivating pixel art for the community. This week, our King has been especially busy, creating pixel art for a mini-game and adorable rogue-like companions for Kaijus. Don't miss out on Wiklander's incredible creations!
 
@@ -74,7 +74,7 @@ A huge shoutout to the Kaiju Community for embracing the KaijuDex team with open
 
 ## Captain Contest
 
-Share your mutant #KaijuDex on Twitter for a chance to be featured in next week's issue! 📸🔥 Remember, you must be a holder to be considered. Don't miss this opportunity to showcase your unique creation to the community! #KaijuKingz #GetFeatured #HoldersOnly
+Share your mutant caption with #KaijuDex on Twitter for a chance to be featured in next week's issue! 📸🔥 Remember, you must be a holder to be considered. Don't miss this opportunity to showcase your unique creation to the community! #KaijuKingz #GetFeatured #HoldersOnly
 
 ![Mutant-Captain](/images/article2/favorite-merchant-with-thought-bubble.png "600, 600")
 
