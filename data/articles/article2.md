@@ -33,7 +33,7 @@ If there's a single nugget of wisdom I can share, it's the importance of steppin
 
 In short: Pursue greatness. Don't hesitate.
 
-- **Youtube**: [Khaos Fagtory](https://www.youtube.com/@thekhaosfactory)
+- **Youtube**: [Khaos Factory](https://www.youtube.com/@thekhaosfactory)
 
 - **Twitter**: [Qrs](https://twitter.com/Christopher_Qrs)
 
