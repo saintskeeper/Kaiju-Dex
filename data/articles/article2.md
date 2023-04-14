@@ -72,11 +72,11 @@ Stay tuned for more development progress and exciting updates in the world of Ka
 
 A huge shoutout to the Kaiju Community for embracing the KaijuDex team with open arms! We're excited to onboard you and create an environment where you can actively contribute to the evolution of KaijuDex. If you're interested in getting involved, please don't hesitate to reach out to `Walt-` or `Haruxe` in Discord. Together, we'll shape the future of our incredible community!
 
-## Captain Contest
+## Caption Contest
 
 Share your mutant caption with #KaijuDex on Twitter for a chance to be featured in next week's issue! 📸🔥 Remember, you must be a holder to be considered. Don't miss this opportunity to showcase your unique creation to the community! #KaijuKingz #GetFeatured #HoldersOnly
 
-![Mutant-Captain](/images/article2/favorite-merchant-with-thought-bubble.png "600, 600")
+![Mutant-Caption](/images/article2/favorite-merchant-with-thought-bubble.png "600, 600")
 
 and of course there will be a prize 🦖
 
