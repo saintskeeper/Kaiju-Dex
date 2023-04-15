@@ -1,5 +1,6 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -28,5 +29,8 @@ async function initializeFirebaseAnalytics() {
 
 const analytics = initializeFirebaseAnalytics();
 
-// Export analytics
-export { analytics };
+// Initialize Firebase Authentication
+const auth = getAuth(app);
+
+// Export analytics and auth
+export { analytics, auth };
