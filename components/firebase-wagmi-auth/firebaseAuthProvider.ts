@@ -1,28 +1,45 @@
 import { auth } from "../../lib/Firebase/Firebase";
-import { useAccount } from "wagmi";
-
+import { signInWithCustomToken } from "firebase/auth";
 
 // This is a placeholder function. Replace it with your implementation to obtain the custom token from your server.
 // tsignore is used to ignore TypeScript errors in this file.
 // @ts-ignore
-async function getCustomToken(ethereumAddress: string): Promise<string> {
-  // Your implementation to request a custom token from your server
-  // For example, you can make a call to your server API that signs the user's Ethereum address with your Firebase private key
-  // and returns the custom token.
+async function getCustomToken(address: string) {
+  try {
+    const response = await fetch(`/api/createCustomToken?address=${address}`);
+    const data = await response.json();
+
+    if (response.ok) {
+      return data.customToken;
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (error) {
+    console.error('Error fetching custom token:', error);
+    throw error;
+  }
 }
 
 
-export const signInWithEthereum = async (ethereumAddress: string) => {
-  if (!ethereumAddress) {
-    throw new Error("User is not connected to Ethereum");
+async function signInWithEthereum(address: string, customToken: string) {
+  try {
+    // Sign in with the custom token
+    await signInWithCustomToken(auth, customToken);
+  } catch (error) {
+    console.error("Error signing in with Ethereum:", error);
+    throw error;
   }
+}
 
-  const customToken = await getCustomToken(ethereumAddress);
 
-  // Sign in the user with the custom token
-  await auth.signInWithCustomToken(customToken);
-};
+
+
+
 
 export const signOut = async () => {
   await auth.signOut();
 };
+
+
+
+export { signInWithEthereum, getCustomToken};

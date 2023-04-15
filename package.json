@@ -19,7 +19,7 @@
     "@rainbow-me/rainbowkit": "^0.12.2",
     "autoprefixer": "^10.4.14",
     "firebase": "^9.19.1",
-    "firebase-admin": "^11.5.0",
+    "firebase-admin": "^11.6.0",
     "firebase-functions": "^4.2.0",
     "framer-motion": "10.9.1",
     "next": "13.2.4",
