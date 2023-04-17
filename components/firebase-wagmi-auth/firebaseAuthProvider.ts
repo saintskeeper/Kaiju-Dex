@@ -4,9 +4,14 @@ import { signInWithCustomToken } from "firebase/auth";
 // This is a placeholder function. Replace it with your implementation to obtain the custom token from your server.
 // tsignore is used to ignore TypeScript errors in this file.
 // @ts-ignore
-async function getCustomToken(address: string) {
+async function getCustomToken(address: string, signedMessage: string, expiresAt?: number) {
+  const expiresAtParam = expiresAt ? `&expiresAt=${expiresAt}` : "";
   try {
-    const response = await fetch(`/api/createCustomToken?address=${address}`);
+    const response = await fetch(
+      `/api/createCustomToken?address=${address}&signedMessage=${encodeURIComponent(
+        signedMessage
+      )}${expiresAtParam}`
+    );
     const data = await response.json();
 
     if (response.ok) {
@@ -19,6 +24,7 @@ async function getCustomToken(address: string) {
     throw error;
   }
 }
+
 
 
 async function signInWithEthereum(address: string, customToken: string) {

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as admin from 'firebase-admin';
+import * as sigUtil from 'eth-sig-util';
 
 const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
 
@@ -20,16 +21,16 @@ if (!admin.apps.length) {
   });
 }
 
-async function createOrUpdateUserDocument(ethereumAddress: string, customToken: string) {
+async function createOrUpdateUserDocument(ethereumAddress: string, customToken: string, expiresAt: Date) {
   const userRef = admin.firestore().collection("users").doc(ethereumAddress);
-
   const userDoc = await userRef.get();
+
   if (userDoc.exists) {
-    // Update the existing document with the new custom token
-    await userRef.update({ customToken: customToken });
+    // Update the existing document with the new custom token and expiration time
+    await userRef.update({ customToken: customToken, expiresAt: expiresAt });
   } else {
-    // Create a new document with the Ethereum address and custom token
-    await userRef.set({ customToken: customToken });
+    // Create a new document with the Ethereum address, custom token, and expiration time
+    await userRef.set({ customToken: customToken, expiresAt: expiresAt });
   }
 }
 
@@ -42,23 +43,36 @@ async function createCustomToken(uid: string) {
     throw error;
   }
 }
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   if (req.method === 'GET') {
-    const { address } = req.query;
+    const { address, signedMessage } = req.query;
 
     if (!address || typeof address !== 'string') {
       return res.status(400).json({ error: 'Invalid Ethereum address' });
     }
 
-    try {
-      // Create the custom token
-      const customToken = await createCustomToken(address);
+    if (!signedMessage || typeof signedMessage !== 'string') {
+      return res.status(400).json({ error: 'Invalid signed message' });
+    }
 
-      // Create or update the user document in Firestore
+    try {
+      // Verify the signature
+      const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
+      const recoveredAddress = sigUtil.recoverPersonalSignature({
+        data: message,
+        sig: signedMessage,
+      });
+
+      if (recoveredAddress.toLowerCase() !== address.toLowerCase()) {
+        return res.status(401).json({ error: 'Signature verification failed' });
+      }
+
+      const customToken = await createCustomToken(address);
+      // i have error handling for this server side
+      // @ts-ignore
       await createOrUpdateUserDocument(address, customToken);
 
       return res.status(200).json({ customToken });
