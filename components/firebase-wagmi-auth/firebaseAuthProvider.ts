@@ -1,5 +1,6 @@
 import { auth } from "../../lib/Firebase/Firebase";
 import { signInWithCustomToken } from "firebase/auth";
+import { Auth } from "firebase/auth";
 
 // This is a placeholder function. Replace it with your implementation to obtain the custom token from your server.
 // tsignore is used to ignore TypeScript errors in this file.
@@ -27,7 +28,7 @@ async function getCustomToken(address: string, signedMessage: string, expiresAt?
 
 
 
-async function signInWithEthereum(address: string, customToken: string) {
+async function signInWithEthereum(auth: Auth, customToken: string) {
   try {
     // Sign in with the custom token
     await signInWithCustomToken(auth, customToken);
