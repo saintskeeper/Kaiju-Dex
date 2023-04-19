@@ -1,33 +1,54 @@
-import { useAccount, useConnect } from "wagmi";
-import { InjectedConnector } from 'wagmi/connectors/injected'
-import { useEffect, useState } from "react";
-import { signInWithEthereum, getCustomToken } from "../firebase-wagmi-auth/firebaseAuthProvider";
-import { auth } from "../../lib/Firebase/Firebase";
+import { useAccount, useConnect } from 'wagmi';
+import { useEffect, useState } from 'react';
+import { useWeb3React } from '@web3-react/core';
+import { signInWithEthereum, getCustomToken } from '../firebase-wagmi-auth/firebaseAuthProvider';
+import { auth } from '../../lib/Firebase/Firebase';
+import { InjectedConnector } from 'wagmi/connectors/injected';
 
 const SignInButton = () => {
   const { isConnected, address } = useAccount();
-  const { connect } = useConnect();
+  const web3React = useWeb3React();
+  const { library } = web3React;
   const [hasSignedIn, setHasSignedIn] = useState(false);
+  const { connect } = useConnect();
+
+
+  useEffect(() => {
+    if (isConnected) {
+      setHasSignedIn(true);
+    }
+  }, [isConnected]);
+
+  useEffect(() => {
+    const storedConnection = localStorage.getItem("hasSignedIn");
+    if (storedConnection && JSON.parse(storedConnection)) {
+      setHasSignedIn(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("hasSignedIn", JSON.stringify(hasSignedIn));
+  }, [hasSignedIn]);
+
+
+
+
 
   const handleSignIn = async () => {
+    const injectedConnector = new InjectedConnector();
+
     if (!isConnected) {
-      await connect({ connector: new InjectedConnector() });
+      await connect({ connector: injectedConnector });
     }
+    if (isConnected && address) {
+      const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
+      const hashedMessage = library.utils.hashMessage(message);
+      const signer = library.getSigner();
+      const signature = await signer.signMessage(library.utils.arrayify(hashedMessage));;
 
-    if (address) {
       try {
-        if (typeof window.ethereum !== "undefined") {
-          const message = `This is a signature check to ensure you own the wallet you're using for the KaijuDex \n\nTimestamp: ${Date.now()}`;
-          const signedMessage = await (window.ethereum.request as any)({
-            method: "personal_sign",
-            params: [address, message],
-          });
-
-          const customToken = await getCustomToken(address, signedMessage);
-          await signInWithEthereum(auth, customToken);
-        } else {
-          console.error("Ethereum object not found.");
-        }
+        const customToken = await getCustomToken(address, signature);
+        await signInWithEthereum(auth, customToken);
       } catch (error) {
         console.error("Error signing in with Ethereum:", error);
       }
@@ -35,6 +56,8 @@ const SignInButton = () => {
       console.error("User is not connected to Ethereum.");
     }
   };
+
+
 
   return (
     <div className="flex justify-end">

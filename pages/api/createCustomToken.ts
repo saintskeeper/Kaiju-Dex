@@ -1,7 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as admin from 'firebase-admin';
 import * as sigUtil from 'eth-sig-util';
-
+// Verify the signature
+import { useWeb3React } from '@web3-react/core';
+const web3React = useWeb3React();
+const { library } = web3React;
 const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
 
 if (!firebasePrivateKey) {
@@ -43,6 +46,8 @@ async function createCustomToken(uid: string) {
     throw error;
   }
 }
+// ...
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -61,11 +66,11 @@ export default async function handler(
     try {
       // Verify the signature
       const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
+      const hashedMessage = library.utils.hashMessage(message);
       const recoveredAddress = sigUtil.recoverPersonalSignature({
-        data: message,
+        data: hashedMessage,
         sig: signedMessage,
       });
-
       if (recoveredAddress.toLowerCase() !== address.toLowerCase()) {
         return res.status(401).json({ error: 'Signature verification failed' });
       }
