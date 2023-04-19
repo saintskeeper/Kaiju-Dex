@@ -4,8 +4,8 @@ import * as sigUtil from 'eth-sig-util';
 // Verify the signature
 import { useWeb3React } from '@web3-react/core';
 const web3React = useWeb3React();
-const { library } = web3React;
 const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
+import { ethers } from 'ethers';
 
 if (!firebasePrivateKey) {
   throw new Error("FIREBASE_PRIVATE_KEY environment variable is missing!");
@@ -66,7 +66,7 @@ export default async function handler(
     try {
       // Verify the signature
       const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
-      const hashedMessage = library.utils.hashMessage(message);
+      const hashedMessage = ethers.utils.hashMessage(message); // Use ethers directly instead of library
       const recoveredAddress = sigUtil.recoverPersonalSignature({
         data: hashedMessage,
         sig: signedMessage,
