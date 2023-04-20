@@ -1,17 +1,22 @@
+import { useState, useEffect } from 'react';
 import { useAccount, useConnect } from 'wagmi';
-import { useEffect, useState } from 'react';
-import { useWeb3React } from '@web3-react/core';
 import { signInWithEthereum, getCustomToken } from '../firebase-wagmi-auth/firebaseAuthProvider';
 import { auth } from '../../lib/Firebase/Firebase';
-import { InjectedConnector } from 'wagmi/connectors/injected';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { mainnet, optimism, polygon } from 'wagmi/chains';
+
+const metaMaskConnector = new MetaMaskConnector({
+  chains: [mainnet, optimism, polygon],
+  options: {
+    shimDisconnect: true,
+    UNSTABLE_shimOnConnectSelectAccount: true,
+  },
+});
 
 const SignInButton = () => {
-  const { isConnected, address } = useAccount();
-  const web3React = useWeb3React();
-  const { library } = web3React;
-  const [hasSignedIn, setHasSignedIn] = useState(false);
+  const { address, isConnected } = useAccount();
   const { connect } = useConnect();
-
+  const [hasSignedIn, setHasSignedIn] = useState(false);
 
   useEffect(() => {
     if (isConnected) {
@@ -30,21 +35,15 @@ const SignInButton = () => {
     localStorage.setItem("hasSignedIn", JSON.stringify(hasSignedIn));
   }, [hasSignedIn]);
 
-
-
-
-
   const handleSignIn = async () => {
-    const injectedConnector = new InjectedConnector();
-
     if (!isConnected) {
-      await connect({ connector: injectedConnector });
+      await connect({ connector: metaMaskConnector });
     }
+
     if (isConnected && address) {
       const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
-      const hashedMessage = library.utils.hashMessage(message);
-      const signer = library.getSigner();
-      const signature = await signer.signMessage(library.utils.arrayify(hashedMessage));;
+      const signer = await metaMaskConnector.getSigner();
+      const signature = await signer.signMessage(message);
 
       try {
         const customToken = await getCustomToken(address, signature);
@@ -56,7 +55,6 @@ const SignInButton = () => {
       console.error("User is not connected to Ethereum.");
     }
   };
-
 
 
   return (

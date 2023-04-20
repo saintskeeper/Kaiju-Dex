@@ -1,11 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as admin from 'firebase-admin';
-import * as sigUtil from 'eth-sig-util';
 // Verify the signature
-import { useWeb3React } from '@web3-react/core';
-const web3React = useWeb3React();
 const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
-import { ethers } from 'ethers';
 
 if (!firebasePrivateKey) {
   throw new Error("FIREBASE_PRIVATE_KEY environment variable is missing!");
@@ -29,8 +25,14 @@ async function createOrUpdateUserDocument(ethereumAddress: string, customToken: 
   const userDoc = await userRef.get();
 
   if (userDoc.exists) {
-    // Update the existing document with the new custom token and expiration time
-    await userRef.update({ customToken: customToken, expiresAt: expiresAt });
+    // Check if the token is expired
+    const userData = userDoc.data();
+    const tokenExpiration = userData && userData.expiresAt ? userData.expiresAt.toDate() : null;
+
+    if (!tokenExpiration || tokenExpiration < new Date()) {
+      // Update the existing document with the new custom token and expiration time
+      await userRef.update({ customToken: customToken, expiresAt: expiresAt });
+    }
   } else {
     // Create a new document with the Ethereum address, custom token, and expiration time
     await userRef.set({ customToken: customToken, expiresAt: expiresAt });
@@ -46,12 +48,9 @@ async function createCustomToken(uid: string) {
     throw error;
   }
 }
-// ...
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     const { address, signedMessage } = req.query;
 
@@ -64,21 +63,10 @@ export default async function handler(
     }
 
     try {
-      // Verify the signature
-      const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
-      const hashedMessage = ethers.utils.hashMessage(message); // Use ethers directly instead of library
-      const recoveredAddress = sigUtil.recoverPersonalSignature({
-        data: hashedMessage,
-        sig: signedMessage,
-      });
-      if (recoveredAddress.toLowerCase() !== address.toLowerCase()) {
-        return res.status(401).json({ error: 'Signature verification failed' });
-      }
-
       const customToken = await createCustomToken(address);
-      // i have error handling for this server side
-      // @ts-ignore
-      await createOrUpdateUserDocument(address, customToken);
+      const expiresAt = new Date();
+      expiresAt.setDate(expiresAt.getDate() + 7); // Set the token to expire in 1 hour
+      await createOrUpdateUserDocument(address, customToken, expiresAt);
 
       return res.status(200).json({ customToken });
     } catch (error) {
