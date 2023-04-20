@@ -20,3 +20,8 @@ body {
   background-color: #1f2027;
   font-size: 1.25rem;
 }
+
+html, body, #__next, #__next > div, #__next > div > div {
+  height: 100%;
+  width: 100%;
+}
