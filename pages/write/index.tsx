@@ -277,6 +277,10 @@ const Home: NextPage = () => {
     let content = document.getElementById("content");
     let start = content.selectionStart;
     let end = content.selectionEnd;
+    // check to remove the backspace at the end automatically selected after a double-clic
+    if(content.value.substring(end - 1, end) == ' '){
+    	end = end - 1;
+    }
     // get the tag delimiter
     var delimiter_start;
     var delimiter_end;
