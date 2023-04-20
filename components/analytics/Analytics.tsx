@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { logEvent } from "firebase/analytics";
 import { analytics } from "../../lib/Firebase/Firebase";
-
 const usePageViewTracking = (pageName: string) => {
   useEffect(() => {
     const trackPageView = async () => {
