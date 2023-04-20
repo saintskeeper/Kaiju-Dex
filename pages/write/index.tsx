@@ -4,7 +4,7 @@ import Image from "next/image";
 import MarkdownArticle from "../../components/news/MarkdownArticle";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Bold, Italic, Underline, LinkAlt, ImageAdd, Save, ListUl } from "styled-icons/boxicons-regular";
+import { Bold, Italic, LinkAlt, ImageAdd, Save, ListUl } from "styled-icons/boxicons-regular";
 import { Title } from "styled-icons/material";
 import { Quote } from "styled-icons/bootstrap";
 import { RemoveRedEye } from "styled-icons/material-outlined";
@@ -68,12 +68,18 @@ function SaveBtn(props: any) {
   )
 }
 
+function Tooltip(props: any) {
+  return(
+    <span className="text-xs absolute w-fit bg-zinc-500 p-1 rounded-md mx-auto mt-[-30px] left-0 right-0 opacity-0 group-hover:opacity-100">{props.name}</span>
+  )
+}
 function Tool(props: any) {
   return (
       <div 
-      	className="cursor-pointer w-8 px-2 fill-zinc-400 aspect-square hover:bg-white/10 rounded-md"
-      	onClick={() => { props.handler(props.name) }}
+        className="group relative cursor-pointer w-8 px-2 fill-zinc-400 aspect-square hover:bg-white/10 rounded-md"
+        onClick={() => { props.handler(props.name) }}
   	  >
+        <Tooltip name={props.name}/>
         {props.icon}
       </div>
   )
@@ -86,12 +92,11 @@ function Toolbox(props: any) {
         <div className="p-4 gap-8 grid grid-cols-2">
           <Tool name={"bold"} icon={<Bold/>} handler={props.handleTool} />
           <Tool name={"italic"} icon={<Italic/>} handler={props.handleTool} />
-          <Tool name={"underline"} icon={<Underline/>} handler={props.handleTool} />
+          <Tool name={"quote"} icon={<Quote/>} handler={props.handleTool} />
+          <Tool name={"list"} icon={<ListUl/>} handler={props.handleTool} />
           <Tool name={"title"} icon={<Title/>} handler={props.handleTool} />
           <Tool name={"link"} icon={<LinkAlt/>} handler={props.handleTool} />
-          <Tool name={"quote"} icon={<Quote/>} handler={props.handleTool} />
           <Tool name={"image"} icon={<ImageAdd/>} handler={props.handleTool} />
-          <Tool name={"list"} icon={<ListUl/>} handler={props.handleTool} />
         </div>
         <hr className="w-5/6 mx-auto border-white/10" />
         <div className="p-4 m-auto grid grid-cols-1 content-center">
@@ -293,7 +298,23 @@ const Home: NextPage = () => {
         delimiter_start = '*'
         delimiter_end = delimiter_start
         break
+      case 'quote':
+        delimiter_start = '\n> '
+        delimiter_end = ''
+        break
+      case 'list':
+        delimiter_start = '\n - '
+        delimiter_end = ''
+        break
       case 'title':
+        delimiter_start = '# '
+        delimiter_end = ''
+        break
+      case 'link': //todo
+        delimiter_start = '# '
+        delimiter_end = ''
+        break
+      case 'image': //todo
         delimiter_start = '# '
         delimiter_end = ''
         break
