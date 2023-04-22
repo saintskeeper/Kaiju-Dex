@@ -1,8 +1,7 @@
 // pages/news/index.tsx
 import type { NextPage } from "next";
 import Image from "next/image";
-import MarkdownArticle from "../../components/news/MarkdownArticle";
-import Link from "next/link";
+import ArticleCard from "../../components/news/ArticleCard";
 
 const markdownContent = `
 ### Wen Kaiju Dex?
@@ -14,47 +13,16 @@ const markdownContent2 = `
 Artists spotlight and community initiatives
 `;
 
-function ArticleComponent(props: any) {
-  return (
-    <>
-      <Link href={props.link} className="cursor-pointer flex w-[250px] ">
-        <div className="space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md hover:scale-105 duration-200 flex flex-col">
-          <div className="relative h-[250px] w-[250px]">
-            {props.new && (
-              <Image
-                src={"/images/new_icon.png"}
-                alt="new"
-                className="absolute top-2 left-2 z-10 "
-                width={50}
-                height={50}
-              />
-            )}
-            <Image
-              src={props.image}
-              alt="article preview"
-              fill
-              className="rounded-md"
-            />
-          </div>
-          <div className="px-2 py-2 mx-auto text-center w-[250px]">
-            <MarkdownArticle markdown={props.data} />
-          </div>
-        </div>
-      </Link>
-    </>
-  );
-}
-
 const Home: NextPage = () => {
   return (
     <div className="flex space-x-10">
-      <ArticleComponent
+      <ArticleCard
         image={"/images/article2/kaijudex-mini-kaiju.png"}
         data={markdownContent2}
         link={"/news/articles/article2"}
-        new
+        isNew
       />
-      <ArticleComponent
+      <ArticleCard
         image={"/images/Article-1-cover.png"}
         link={"/news/articles/article1"}
         data={markdownContent}

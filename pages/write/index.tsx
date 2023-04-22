@@ -1,45 +1,17 @@
+// SEARCH '//todo' to find WIP items
+//todo auto-save periodically (like immunefi reports)
+
 // pages/news/index.tsx
 import type { NextPage } from "next";
 import Image from "next/image";
-import MarkdownArticle from "../../components/news/MarkdownArticle";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Bold, Italic, LinkAlt, ImageAdd, Save, ListUl } from "styled-icons/boxicons-regular";
 import { Title } from "styled-icons/material";
 import { Quote } from "styled-icons/bootstrap";
 import { RemoveRedEye } from "styled-icons/material-outlined";
-/*
-function ArticleComponent(props: any) {
-  return (
-    <>
-      <Link href={props.link} className="cursor-pointer flex w-[250px] ">
-        <div className="space-y-1 mr-auto outline outline-2 outline-zinc-300 rounded-md hover:scale-105 duration-200 flex flex-col">
-          <div className="relative h-[250px] w-[250px]">
-            {props.new && (
-              <Image
-                src={"/images/new_icon.png"}
-                alt="new"
-                className="absolute top-2 left-2 z-10 "
-                width={50}
-                height={50}
-              />
-            )}
-            <Image
-              src={props.image}
-              alt="article preview"
-              fill
-              className="rounded-md"
-            />
-          </div>
-          <div className="px-2 py-2 mx-auto text-center w-[250px]">
-            <MarkdownArticle markdown={props.data} />
-          </div>
-        </div>
-      </Link>
-    </>
-  );
-}
-*/
+import MarkdownArticle from "../../components/news/MarkdownArticle";
+import ArticleCard from "../../components/news/ArticleCard";
 
 function PreviewBtn(props: any) {
   return(
@@ -217,6 +189,18 @@ function WritingBoard(props: any) {
   )
 }
 
+function CardPreview(props: any) {
+  const data = `### ${props.article_title}\n${props.article_caption}`;
+  return (
+    <ArticleCard
+      image={props.article_image}
+      data={data}
+      link={null}
+      isNew
+    />
+  )
+}
+
 function PreviewBoard(props: any) {
   return (
       <div className="h-full flex w-full gap-x-12">
@@ -227,12 +211,22 @@ function PreviewBoard(props: any) {
 	      <MarkdownArticle markdown={props.article_content} />
 	      <br/>
         </div>
-        <div 
-          className="select-none h-fit w-fit p-4 flex gap-x-3 items-center active:bg-[#6544c9] bg-[#393D45] rounded-md cursor-pointer"
-          onClick={props.handlePreview}
-        >
-          <RemoveRedEye className="w-4 aspect-square"/>
-          <p className="text-white text-sm">Exit preview</p>
+        <div className="h-fit w-fit select-none">
+          <div 
+            className="p-4 flex gap-x-3 items-center active:bg-[#6544c9] bg-[#393D45] rounded-md cursor-pointer"
+            onClick={props.handlePreview}
+          >
+            <RemoveRedEye className="w-4 aspect-square"/>
+            <p className="text-white text-sm">Exit preview</p>
+          </div>
+          <div>
+            <p className="mt-8 mb-2 text-white text-sm">Article card preview:</p>
+            <CardPreview
+              article_image={props.article_image}
+              article_title={props.article_title}
+              article_caption={props.article_caption}
+            />
+          </div>
         </div>
       </div>
   )
