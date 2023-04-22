@@ -74,3 +74,7 @@ This week's funny is brought our own Hokin!
 **Twitter**: [Walt_eng](https://twitter.com/Walt_eng)
 
 **Twitter**: [Ulysses](https://twitter.com/ToshibaHero)
+
+
+#### Links
+[Issue 9](https://medium.com/@AugmintedLabs/kaijukingz-community-update-9-268ef592813e)
