@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Head from "next/head";
-import { WagmiConfig, createClient } from "wagmi";
+import { createClient } from "wagmi";
 import { configureChains, mainnet } from "@wagmi/core";
 import { publicProvider } from "@wagmi/core/providers/public";
 import {
@@ -26,9 +25,9 @@ import Image from "next/image";
 // Firebase analytics
 import usePageViewTracking from "../components/analytics/Analytics";
 import { useRouter } from "next/router";
-import Metadata from "../components/meta/metadata";
+import Metadata from "../components/metadata/metadata";
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
-
+import WagmiProvider from "../components/wagmi/WagmiProvider";
 const connectors = connectorsForWallets([
   {
     groupName: "Currently Supported",
@@ -48,11 +47,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const pageName = router.route;
   usePageViewTracking(pageName);
 
-  const { isConnected, address } = useAccount();
   return (
     <div className="">
       <Metadata />
-      <WagmiConfig client={wagmiClient}>
+      <WagmiProvider>
         <RainbowKitProvider
           chains={chains}
           theme={darkTheme({
@@ -82,7 +80,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     className="flex flex-col place-items-center text-[#6544c9] cursor-pointer my-[50px]"
                   >
                     <div className="flex space-x-2 ">
-                      {/* <CatchingPokemon className="w-8 my-auto fill-[#6544c9] rotate-12" /> */}
+                       {/*<CatchingPokemon className="w-8 my-auto fill-[#6544c9] rotate-12" /> */}
                       <Image
                         className="w-8 my-auto rounded-full"
                         src="/images/icons/KaijuDex-02.png"
@@ -185,14 +183,14 @@ function MyApp({ Component, pageProps }: AppProps) {
                     className="w-[85%] mx-auto flex bg-transparent border-none outline-none text-sm"
                   />
                 </div> */}
-                {/* <ConnectButton showBalance={false} /> */}
+                 {/*<ConnectButton showBalance={false} /> */}
               </div>
               <div className="mb-5" />
               <Component {...pageProps} />
             </div>
           </div>
         </RainbowKitProvider>
-      </WagmiConfig>
+        </WagmiProvider>
     </div>
   );
 }
