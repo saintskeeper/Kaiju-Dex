@@ -14,6 +14,11 @@ const markdownContent2 = `
 Artists spotlight and community initiatives
 `;
 
+const markdownContent3 = `
+### Season 3 out of this world
+L3's story continues
+`;
+
 function ArticleComponent(props: any) {
   return (
     <>
@@ -49,10 +54,15 @@ const Home: NextPage = () => {
   return (
     <div className="flex space-x-10">
       <ArticleComponent
+        image={"/images/article3/cute-space-kaiju.png"}
+        data={markdownContent3}
+        link={"/news/articles/article3"}
+        new
+      />
+      <ArticleComponent
         image={"/images/article2/kaijudex-mini-kaiju.png"}
         data={markdownContent2}
         link={"/news/articles/article2"}
-        new
       />
       <ArticleComponent
         image={"/images/Article-1-cover.png"}
