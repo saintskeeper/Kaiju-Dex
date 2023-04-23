@@ -4,6 +4,10 @@ import Link from "next/link";
 import { Discord, Twitter } from "styled-icons/bootstrap";
 import { Crown } from "styled-icons/boxicons-regular";
 import { Link2 } from "styled-icons/evaicons-solid";
+import { auth } from "../../lib/Firebase/Firebase";
+import { db } from "../../lib/Firebase/Firebase"; // import your Firebase configuration file
+import { setDoc, doc } from "firebase/firestore";
+
 
 interface ProfileCardProps {
   address: string;
@@ -36,6 +40,23 @@ const ProfileCard: FC<ProfileCardProps> = ({
   offer,
   username,
 }) => {
+  const handleClick = async () => {
+    const docRef = await setDoc(doc(db, "profile", address), {
+      ens,
+      ensLoading,
+      ensError,
+      imagePath,
+      altText,
+      etherscanUrl,
+      twitterUrl,
+      discordUrl,
+      memberSince,
+      description,
+      offer,
+      username,
+    });
+  };
+
   return (
     <div className="space-y-5">
       <div className="rounded-lg flex-col space-y-5 ">
@@ -72,30 +93,29 @@ const ProfileCard: FC<ProfileCardProps> = ({
                 href={discordUrl}
                 className="flex space-x-2 outline outline-1 outline-zinc-500 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
               >
-                <Discord className="w-3 h-3" />
-                <p>Discord</p>
-              </Link>
-            </div>
-            <p className="text-md text-gray-400 tracking-wide">{description}</p>
+          <p>Discord</p>
+            </Link>
           </div>
-        </div>
-      </div>
-      <div>
-        <div className="rounded-lg space-y-4">
-          <h1 className="text-2xl font-bold">What I Offer:</h1>
-          <p className="text-md text-gray-400 tracking-wide">{offer}</p>
-          <div className="flex space-x-2 ">
-            <Crown className="w-5" />
-            <p className="text-md text-gray-200 tracking-wider">
-              {memberSince}
-            </p>
-          </div>
-          <div className="h-[2px] bg-zinc-700" />
-          <div className="rounded-lg space-y-4" />
+          <p className="text-md text-gray-400 tracking-wide">{description}</p>
         </div>
       </div>
     </div>
-  );
-};
+    <div>
+      <div className="rounded-lg space-y-4">
+        <h1 className="text-2xl font-bold">What I Offer:</h1>
+        <p className="text-md text-gray-400 tracking-wide">{offer}</p>
+        <div className="flex space-x-2 ">
+          <Crown className="w-5" />
+          <p className="text-md text-gray-200 tracking-wider">
+            {memberSince}
+          </p>
+        </div>
+        <div className="h-[2px] bg-zinc-700" />
+        <div className="rounded-lg space-y-4" />
+      </div>
+    </div>
+  </div>
+);
+  };
 
 export default ProfileCard;

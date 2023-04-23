@@ -12,7 +12,7 @@ import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
 import "@rainbow-me/rainbowkit/styles.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-import { News, Paperclip, SearchAlt } from "styled-icons/boxicons-regular";
+import { Edit, News, Paperclip, SearchAlt } from "styled-icons/boxicons-regular";
 import {
   CatchingPokemon,
   DocumentScanner,
@@ -71,7 +71,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             />
           )}
         >
-          <div className="place-items-center mx-auto max-w-[1500px]">
+          <div className="h-full place-items-center mx-auto max-w-[1500px]">
             <div className="relative hidden md:flex">
               <div className="fixed h-[100vh] flex-row text-white flex space-x-5 z-20">
                 <div className="flex flex-col text-md bg-[#1F2027] border-r border-zinc-700 p-4 place-items-left place-content-left pr-12">
@@ -106,6 +106,15 @@ function MyApp({ Component, pageProps }: AppProps) {
                     </div>
                     <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
                       <Link
+                        href="/write"
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <Edit className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">Write</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                      <Link
                         href={"/profile"}
                         className="flex space-x-4 place-items-center place-content-left"
                       >
@@ -126,7 +135,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </div>
               </div>
             </div>
-            <div className="md:ml-[270px] px-5 md:px-12 py-10 flex flex-col space-y-10">
+            <div className="h-full md:ml-[270px] px-5 md:px-12 py-10 flex flex-col space-y-10">
               <div className="flex space-x-5 place-items-center">
                 <Link
                   href="/"

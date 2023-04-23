@@ -1,6 +1,10 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import { getDocs, getFirestore, collection, query, where, limit, DocumentSnapshot} from "firebase/firestore";
+
+
+
 
 
 const firebaseConfig = {
@@ -28,11 +32,38 @@ async function initializeFirebaseAnalytics() {
   return null;
 }
 
+
+
+
+
 const analytics = initializeFirebaseAnalytics();
 
 // Initialize Firebase Authentication
 const auth = getAuth(app);
+// export db  to be used for updating the profile.
+const db = getFirestore(app);
 
+export async function getUserWithUsername(username: string ) {
+  const profilesRef = collection(db, "profiles");
+  const q = query(profilesRef, where("username", "==", username), limit(1));
+  const querySnapshot = await getDocs(q);
+  const userDoc = querySnapshot.docs[0];
+  return userDoc;
+}
+
+/**`
+ * Converts a firestore document to JSON
+ * @param  {DocumentSnapshot} doc
+ */
+export function postToJSON(doc: DocumentSnapshot) {
+  const data = doc.data();
+  return {
+    ...data,
+    // Gotcha! firestore timestamp NOT serializable to JSON. Must convert to milliseconds
+    createdAt: data?.createdAt.toMillis() || 0,
+    updatedAt: data?.updatedAt.toMillis() || 0,
+  };
+}
 
 // Export analytics and auth
-export { analytics, auth };
+export { analytics, auth, db };

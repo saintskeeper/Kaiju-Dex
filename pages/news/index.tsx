@@ -1,8 +1,7 @@
 // pages/news/index.tsx
 import type { NextPage } from "next";
 import Image from "next/image";
-import MarkdownArticle from "../../components/news/MarkdownArticle";
-import Link from "next/link";
+import ArticleCard from "../../components/news/ArticleCard";
 
 const markdownContent = `
 ### Wen Kaiju Dex?
@@ -64,7 +63,7 @@ const Home: NextPage = () => {
         data={markdownContent2}
         link={"/news/articles/article2"}
       />
-      <ArticleComponent
+      <ArticleCard
         image={"/images/Article-1-cover.png"}
         link={"/news/articles/article1"}
         data={markdownContent}
