@@ -20,7 +20,7 @@ if (!admin.apps.length) {
   });
 }
 
-async function createOrUpdateUserDocument(ethereumAddress: string, customToken: string, expiresAt: Date) {
+async function createOrUpdateUserDocument(uid: string, ethereumAddress: string, customToken: string, expiresAt: Date) {
   const userRef = admin.firestore().collection("users").doc(ethereumAddress);
   const userDoc = await userRef.get();
 
@@ -30,14 +30,15 @@ async function createOrUpdateUserDocument(ethereumAddress: string, customToken: 
     const tokenExpiration = userData && userData.expiresAt ? userData.expiresAt.toDate() : null;
 
     if (!tokenExpiration || tokenExpiration < new Date()) {
-      // Update the existing document with the new custom token and expiration time
-      await userRef.update({ customToken: customToken, expiresAt: expiresAt });
+      // Update the existing document with the new custom token, UID, and expiration time
+      await userRef.update({ uid: uid, customToken: customToken, expiresAt: expiresAt });
     }
   } else {
-    // Create a new document with the Ethereum address, custom token, and expiration time
-    await userRef.set({ customToken: customToken, expiresAt: expiresAt });
+    // Create a new document with the Ethereum address, custom token, UID, and expiration time
+    await userRef.set({ uid: uid, customToken: customToken, expiresAt: expiresAt });
   }
 }
+
 
 async function createCustomToken(uid: string) {
   try {
@@ -65,13 +66,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const customToken = await createCustomToken(address);
       const expiresAt = new Date();
-      expiresAt.setDate(expiresAt.getDate() + 7); // Set the token to expire in 1 hour
-      await createOrUpdateUserDocument(address, customToken, expiresAt);
+      expiresAt.setDate(expiresAt.getDate() + 7); // Set the token to expire in 7 days
+      await createOrUpdateUserDocument(address, address, customToken, expiresAt);
 
       return res.status(200).json({ customToken });
     } catch (error) {
       return res.status(500).json({ error: 'Error creating custom token' });
     }
+
   } else {
     return res.status(405).json({ error: 'Method not allowed' });
   }

@@ -16,8 +16,10 @@ async function getCustomToken(address: string, signedMessage: string, expiresAt?
     const data = await response.json();
 
     if (response.ok) {
+      console.log("Custom token received:", data.customToken);
       return data.customToken;
     } else {
+      console.error("Failed to get custom token:", data.error);
       throw new Error(data.error);
     }
   } catch (error) {
@@ -33,7 +35,7 @@ async function signInWithEthereum(auth: Auth, customToken: string) {
     // Sign in with the custom token
     await signInWithCustomToken(auth, customToken);
   } catch (error) {
-    console.error("Error signing in with Ethereum:", error);
+    console.error("Error SignInWithEtherum threw:", error);
     throw error;
   }
 }

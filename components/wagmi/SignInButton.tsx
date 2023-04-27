@@ -18,53 +18,99 @@ const metaMaskConnector = new MetaMaskConnector({
 
 const SignInButton = () => {
   const { address, isConnected } = useAccount();
-  const { connect } = useConnect();
+  const { connectAsync } = useConnect();
   const [hasSignedIn, setHasSignedIn] = useState(false);
   const [buttonLabel, setButtonLabel] = useState('Connect');
 
   useEffect(() => {
+    const signInWithEthereumAddress = async () => {
+      console.log('isConnected (after connectAsync):', isConnected);
+      console.log('address (after connectAsync):', address);
+      console.log('hasSignedIn (after connectAsync):', hasSignedIn);
+
+      if (isConnected) {
+        if (!address) {
+          console.error('Unable to get the Ethereum address.');
+          return;
+        }
+
+        if (!hasSignedIn) {
+          const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
+          const signer = await metaMaskConnector.getSigner();
+          const signature = await signer.signMessage(message);
+          console.log('Signature:', signature);
+
+          try {
+            const customToken = await getCustomToken(address, signature);
+            console.log('Custom token:', customToken);
+            await signInWithEthereum(auth, customToken);
+            setHasSignedIn(true);
+          } catch (error) {
+            console.error('Error signing in with Ethereum:', error);
+          }
+        } else {
+          console.log('User is already connected and signed in.');
+        }
+      } else {
+        console.error('User is not connected to Ethereum.');
+      }
+    };
+
     if (isConnected) {
-      setHasSignedIn(true);
-      setButtonLabel('Connected');
-    } else {
-      setButtonLabel('Connect');
+      signInWithEthereumAddress();
     }
   }, [isConnected]);
 
-  useEffect(() => {
-    const storedConnection = localStorage.getItem("hasSignedIn");
-    if (storedConnection && JSON.parse(storedConnection)) {
-      setHasSignedIn(true);
-    }
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem("hasSignedIn", JSON.stringify(hasSignedIn));
-  }, [hasSignedIn]);
 
   const handleSignIn = async () => {
+    console.log('isConnected (start):', isConnected);
+    console.log('address (start):', address);
+    console.log('hasSignedIn (start):', hasSignedIn);
+
     if (!isConnected) {
-      await connect({ connector: metaMaskConnector });
+      try {
+        const connectionInfo = await connectAsync({ connector: metaMaskConnector });
+        console.log('Connected:', connectionInfo);
+      } catch (error) {
+        console.error('Error connecting to Ethereum:', error);
+        return;
+      }
     }
 
-    if (isConnected && address && !hasSignedIn) {
-      const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
-      const signer = await metaMaskConnector.getSigner();
-      const signature = await signer.signMessage(message);
+    console.log('isConnected (after connectAsync):', isConnected);
+    console.log('address (after connectAsync):', address);
+    console.log('hasSignedIn (after connectAsync):', hasSignedIn);
 
-      try {
-        const customToken = await getCustomToken(address, signature);
-        await signInWithEthereum(auth, customToken);
-        setHasSignedIn(true); // Update the hasSignedIn state
-      } catch (error) {
-        console.error("Error signing in with Ethereum:", error);
+    if (isConnected) {
+      if (!address) {
+        console.error('Unable to get the Ethereum address.');
+        return;
       }
-    } else if (isConnected && hasSignedIn) {
-      console.log("User is already connected and signed in.");
+
+      if (!hasSignedIn) {
+        const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
+        const signer = await metaMaskConnector.getSigner();
+        const signature = await signer.signMessage(message);
+        console.log('Signature:', signature);
+
+        try {
+          const customToken = await getCustomToken(address, signature);
+          console.log('Custom token:', customToken);
+          await signInWithEthereum(auth, customToken);
+          setHasSignedIn(true);
+        } catch (error) {
+          console.error('Error signing in with Ethereum:', error);
+        }
+      } else {
+        console.log('User is already connected and signed in.');
+      }
     } else {
-      console.error("User is not connected to Ethereum.");
+      console.error('User is not connected to Ethereum.');
     }
   };
+
+
 
 
 
@@ -79,6 +125,5 @@ const SignInButton = () => {
     </div>
   );
 };
-
 
 export default SignInButton;
