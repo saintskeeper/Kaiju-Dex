@@ -23,24 +23,44 @@ const SignInButton = () => {
   const [buttonLabel, setButtonLabel] = useState('Connect');
 
   useEffect(() => {
-    if (isConnected && !hasSignedIn) {
-      setHasSignedIn(true);
-      setButtonLabel('Connected');
-    } else {
-      setButtonLabel('Connect');
-    }
-  }, [isConnected, hasSignedIn]);
+    const signInWithEthereumAddress = async () => {
+      console.log('isConnected (after connectAsync):', isConnected);
+      console.log('address (after connectAsync):', address);
+      console.log('hasSignedIn (after connectAsync):', hasSignedIn);
 
-  useEffect(() => {
-    const storedConnection = localStorage.getItem("hasSignedIn");
-    if (storedConnection && JSON.parse(storedConnection)) {
-      setHasSignedIn(true);
-    }
-  }, []);
+      if (isConnected) {
+        if (!address) {
+          console.error('Unable to get the Ethereum address.');
+          return;
+        }
 
-  useEffect(() => {
-    localStorage.setItem("hasSignedIn", JSON.stringify(hasSignedIn));
-  }, [hasSignedIn]);
+        if (!hasSignedIn) {
+          const message = `Sign this message to authenticate with your Ethereum address: ${address}`;
+          const signer = await metaMaskConnector.getSigner();
+          const signature = await signer.signMessage(message);
+          console.log('Signature:', signature);
+
+          try {
+            const customToken = await getCustomToken(address, signature);
+            console.log('Custom token:', customToken);
+            await signInWithEthereum(auth, customToken);
+            setHasSignedIn(true);
+          } catch (error) {
+            console.error('Error signing in with Ethereum:', error);
+          }
+        } else {
+          console.log('User is already connected and signed in.');
+        }
+      } else {
+        console.error('User is not connected to Ethereum.');
+      }
+    };
+
+    if (isConnected) {
+      signInWithEthereumAddress();
+    }
+  }, [isConnected]);
+
 
 
   const handleSignIn = async () => {
