@@ -21,7 +21,7 @@ Currently, we're working on Play Valtreas (@play_valtreas), a 2D action RPG set 
 
 We're awaiting some final designs, but you can get a sneak peek at our progress by visiting our mini-site [valtreas](https://valtreas.com). At the moment, I'm developing the authentication and sign-up process, which you can check out at [valtreas-app](https://dev.app.valtreas.com).
 
-Feel free to explore our hero editor mockup at https://dev.app.valtreas.com/play (click on the hero icon at the bottom). All items and equipment displayed there will be available in-game as NFTs. For example, when a player defeats a boss, our backend verifies the accomplishment and mints the NFT directly into the player's wallet. With Immutable, this process is gas-free, requiring players to link their web3 wallet to their account only once.
+Feel free to explore our hero editor mockup at [play-valtreas](https://dev.app.valtreas.com/play) (click on the hero icon at the bottom). All items and equipment displayed there will be available in-game as NFTs. For example, when a player defeats a boss, our backend verifies the accomplishment and mints the NFT directly into the player's wallet. With Immutable, this process is gas-free, requiring players to link their web3 wallet to their account only once.
 
 All items and equipment will be fully tradeable, providing a seamless gaming experience.
 
