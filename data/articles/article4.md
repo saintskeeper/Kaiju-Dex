@@ -30,11 +30,11 @@ All items and equipment will be fully tradeable, providing a seamless gaming exp
 
 ## Artist
 
-### NewMytholog
+### NewMythology
 ![NewMythology](/images/article4/newMythology.jpg "200, 200")
 
 
-The KaijuDex team is delighted to feature @NewMythologi this week. Mythology commissioned artwork by @LipweiChangArt to narrate the story of several scientists in Sorashima City. Here's an insight into Mythologi’s creative thought process:
+The KaijuDex team is delighted to feature @NewMythology this week. Mythology commissioned artwork by @LipweiChangArt to narrate the story of several scientists in Sorashima City. Here's an insight into Mythology’s creative thought process:
 
 I was captivated by the idea of designing my Scientist. My inspiration comes from following a trail of excitement. I couldn't resist transforming my NFTs into stories and contributing to Sorashima's fan lore. Dots and the team did a fantastic job with the Scientist mint.
 
