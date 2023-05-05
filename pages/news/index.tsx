@@ -19,6 +19,11 @@ const markdownContent3 = `
 L3's story continues
 `;
 
+const markdownContent4 = `
+### Dawn of the Augmented Era
+amazing creators and funnies!
+`;
+
 function ArticleComponent(props: any) {
   return (
     <>
@@ -53,11 +58,16 @@ function ArticleComponent(props: any) {
 const Home: NextPage = () => {
   return (
     <div className="flex space-x-10">
+        <ArticleComponent
+        image={"/images/article4/L3-in-Subway.png"}
+        data={markdownContent4}
+        link={"/news/articles/article4"}
+        new
+      />
       <ArticleComponent
         image={"/images/article3/cute-space-kaiju.png"}
         data={markdownContent3}
         link={"/news/articles/article3"}
-        new
       />
       <ArticleComponent
         image={"/images/article2/kaijudex-mini-kaiju.png"}
