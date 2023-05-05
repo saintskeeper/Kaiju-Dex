@@ -6,7 +6,7 @@ The KaijuDex team like to congratulate the Augminted team for yet another succes
 
 # Celebrating creators in the space.
 
-## Developer
+## Developer of The Week
 
 ### Fugashu
 
