@@ -16,16 +16,21 @@ import { News, Paperclip, SearchAlt } from "styled-icons/boxicons-regular";
 import {
   CatchingPokemon,
   DocumentScanner,
+  DarkMode,
+  LightMode,
 } from "styled-icons/material-twotone";
 import { useAccount } from "wagmi";
 import { PersonFill, Question } from "styled-icons/bootstrap";
 import Image from "next/image";
+import "../components/news/markdown.css";
 
 // custom components
 // Firebase analytics
 import usePageViewTracking from "../components/analytics/Analytics";
 import { useRouter } from "next/router";
 import Metadata from "../components/metadata/metadata";
+import { useEffect, useState } from "react";
+import useTheme from "../hooks/useTheme";
 const { provider, chains } = configureChains([mainnet], [publicProvider()]);
 import WagmiProvider from "../components/wagmi/WagmiProvider";
 const connectors = connectorsForWallets([
@@ -47,6 +52,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   const pageName = router.route;
   usePageViewTracking(pageName);
 
+  // Can set the theme based on cache/acc pref in the future
+  const [theme, setTheme] = useTheme();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const { isConnected, address } = useAccount();
   return (
     <div className="">
       <Metadata />
@@ -74,59 +91,85 @@ function MyApp({ Component, pageProps }: AppProps) {
           <div className="place-items-center mx-auto max-w-[1500px]">
             <div className="relative hidden md:flex">
               <div className="fixed h-[100vh] flex-row text-white flex space-x-5 z-20">
-                <div className="flex flex-col text-md bg-[#1F2027] border-r border-zinc-700 p-4 place-items-left place-content-left pr-12">
-                  <Link
-                    href="/"
-                    className="flex flex-col place-items-center text-[#6544c9] cursor-pointer my-[50px]"
-                  >
-                    <div className="flex space-x-2 ">
-                       {/*<CatchingPokemon className="w-8 my-auto fill-[#6544c9] rotate-12" /> */}
-                      <Image
-                        className="w-8 my-auto rounded-full"
-                        src="/images/icons/KaijuDex-02.png"
-                        alt="logo"
-                        width="50"
-                        height="50"
-                      />
-                      <div className="text-3xl font-black ">KAIJUDEX</div>
-                    </div>
-                    <p className="font-bold text-xs ml-auto text-zinc-500">
-                      v0.1.0
-                    </p>
-                  </Link>
-                  <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
-                        href="/news"
-                        className="flex space-x-4 place-items-center place-content-left"
-                      >
-                        <News className="w-9 fill-zinc-400" />
-                        <div className="text-zinc-400">News</div>
-                      </Link>
-                    </div>
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
-                        href={"/profile"}
-                        className="flex space-x-4 place-items-center place-content-left"
-                      >
-                        <PersonFill className="w-9 fill-zinc-400" />
-                        <div className="text-zinc-400">Profile</div>
-                      </Link>
-                    </div>
-                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
-                      <Link
-                        href="https://docs.kaijudex.app/"
-                        className="flex space-x-4 place-items-center place-content-left"
-                      >
-                        <Paperclip className="w-9 fill-zinc-400" />
-                        <div className="text-zinc-400">Docs</div>
-                      </Link>
+                <div className="flex flex-col text-md bg-[#e2e8f0] dark:bg-[#1F2027] border-r border-zinc-700 p-4 place-items-left place-content-left pr-12 justify-between">
+                  <div>
+                    <Link
+                      href="/"
+                      className="flex flex-col place-items-center text-[#6544c9] cursor-pointer my-[50px]"
+                    >
+                      <div className="flex space-x-2 ">
+                        {/* <CatchingPokemon className="w-8 my-auto fill-[#6544c9] rotate-12" /> */}
+                        <Image
+                          className="w-8 my-auto rounded-full"
+                          src="/images/icons/KaijuDex-02.png"
+                          alt="logo"
+                          width="50"
+                          height="50"
+                        />
+                        <div className="text-3xl font-black text-black dark:text-white">
+                          KAIJUDEX
+                        </div>
+                      </div>
+                      <p className="font-bold text-xs ml-auto text-zinc-500">
+                        v0.1.0
+                      </p>
+                    </Link>
+                    <div className="mt-10 flex flex-col space-y-4 text-md text-zinc-600 font-bold">
+                      <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                        <Link
+                          href="/news"
+                          className="flex space-x-4 place-items-center place-content-left"
+                        >
+                          <News className="w-9 fill-zinc-400" />
+                          <div className="text-zinc-400">News</div>
+                        </Link>
+                      </div>
+                      <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                        <Link
+                          href={"/profile"}
+                          className="flex space-x-4 place-items-center place-content-left"
+                        >
+                          <PersonFill className="w-9 fill-zinc-400" />
+                          <div className="text-zinc-400">Profile</div>
+                        </Link>
+                      </div>
+                      <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                        <Link
+                          href="https://docs.kaijudex.app/"
+                          className="flex space-x-4 place-items-center place-content-left"
+                        >
+                          <Paperclip className="w-9 fill-zinc-400" />
+                          <div className="text-zinc-400">Docs</div>
+                        </Link>
+                      </div>
                     </div>
                   </div>
+                  {theme === "dark" && (
+                    <div
+                      className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-fit hover:shadow-xl"
+                      onClick={() => setTheme()}
+                    >
+                      <DarkMode
+                        className={`w-9 fill-zinc-400`}
+                        title={"Light/Dark Mode"}
+                      />
+                    </div>
+                  )}
+                  {theme === "light" && (
+                    <div
+                      className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-fit hover:shadow-xl"
+                      onClick={() => setTheme()}
+                    >
+                      <LightMode
+                        className={`w-9 fill-zinc-400`}
+                        title={"Light/Dark Mode"}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="md:ml-[270px] px-5 md:px-12 py-10 flex flex-col space-y-10">
+            <div className="md:ml-[270px] bg-[#e2e8f0] dark:bg-[#1F2027] px-5 md:px-12 py-10 flex flex-col space-y-10">
               <div className="flex space-x-5 place-items-center">
                 <Link
                   href="/"
@@ -174,14 +217,14 @@ function MyApp({ Component, pageProps }: AppProps) {
                     className="w-[85%] mx-auto flex bg-transparent border-none outline-none text-sm"
                   />
                 </div> */}
-                 {/*<ConnectButton showBalance={false} /> */}
+                {/*<ConnectButton showBalance={false} /> */}
               </div>
               <div className="mb-5" />
               <Component {...pageProps} />
             </div>
           </div>
         </RainbowKitProvider>
-        </WagmiProvider>
+      </WagmiProvider>
     </div>
   );
 }

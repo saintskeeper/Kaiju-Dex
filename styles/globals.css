@@ -17,6 +17,19 @@
 }
 
 body {
-  background-color: #1f2027;
+  /* background-color: rgb(31, 32, 39); */
+  /* background-color: #e4e4e7; */
+  /* background-color: #cbd5e1; */
+  background-color: #e2e8f0;
+  /* color: rgb(57, 61, 69); */
+  /* color: #334155 */
   font-size: 1.25rem;
+}
+
+body.dark {
+  background-color: rgb(31, 32, 39);
+}
+
+body.light {
+  background-color: #e4e4e7;
 }

@@ -1,0 +1,35 @@
+body.dark [class^=markdown] strong {
+    color: white;
+}
+
+body [class^=markdown] strong {
+    color: black;
+}
+
+body.dark [class^=markdown] h1 {
+    color: white;
+}
+
+body.dark [class^=markdown] h2 {
+    color: white;
+}
+
+body.dark [class^=markdown] h3 {
+    color: white;
+}
+
+body.dark [class^=markdown] h4 {
+    color: white;
+}
+
+body.dark [class^=markdown] code {
+    color: white;
+}
+
+body.dark [class^=markdown] li {
+    color: white;
+}
+
+body [class^=markdown] li {
+    color: black;
+}
