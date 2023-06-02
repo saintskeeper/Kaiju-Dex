@@ -24,6 +24,12 @@ const markdownContent4 = `
 amazing creators and funnies!
 `;
 
+const markdownContent5 = `
+### Future of the KaijuDex
+Tech, funnies, and updates
+`;
+
+
 function ArticleComponent(props: any) {
   return (
     <>
@@ -58,11 +64,17 @@ function ArticleComponent(props: any) {
 const Home: NextPage = () => {
   return (
     <div className="flex space-x-10">
+      <ArticleComponent
+        image={"/images/article5/walt-_cute_girl_with_cat_ear_hoody_sitting_on_the_shoulder_of_b_5215a903-5169-40f7-9137-a12aa69f36cf.png"}
+        link={"/news/articles/article5"}
+        data={markdownContent5}
+        new
+      />
         <ArticleComponent
         image={"/images/article4/L3-in-Subway.png"}
         data={markdownContent4}
         link={"/news/articles/article4"}
-        new
+
       />
       <ArticleComponent
         image={"/images/article3/cute-space-kaiju.png"}
