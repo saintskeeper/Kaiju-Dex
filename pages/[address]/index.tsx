@@ -21,7 +21,7 @@ const Home: NextPage = () => {
     imagePath="/images/profiles/Animated-Walt-Final-Transform.gif"
     altText="demo"
     etherscanUrl={`https://etherscan.io`}
-    twitterUrl="https://twitter.com/WallyTheGuru"
+    twitterUrl="https://twitter.com/Walt_eng"
     discordUrl="https://discord.gg/kaiju-kingz"
     memberSince="Since 09.01.22"
     description="Last September, I stumbled upon the Kaiju Kings, a warm and welcoming community that instantly felt like home. As a developer, I found the ecosystem to be incredibly robust, providing an excellent environment for collaboration and growth, especially during this Crypto Winter. I've been affectionately dubbed the Ice King within the community, thanks to my unique Augmented Kaiju #2295, which I'm particularly proud of.
