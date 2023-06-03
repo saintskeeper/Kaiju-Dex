@@ -11,11 +11,11 @@ In June, you can expect at least four articles from the KaijuDex. Content on the
 
 We came up with "lockable" functions, which allows for granular state immutability by adding function modifiers to "only owner" functions. It allows contract owners to prune off contract functionality they no longer need/want exposed as an attack vector. Collection owners usually NEED to maintain contract ownership to integrate or configure collections on third-party apps like OpenSea, but don't necessarily want contracts to be vulnerable if keys are compromised.
 
-A perfect example of this was back in 2022 when a vulnerability was identified in the BAYC contract that would allow the contract owner to mint an arbitrary amount of new BAYC tokens. Of course, this created a wave of FUD calling upon Yuga to "burn" contract ownership, which they eventually did (an successfully spun it to ensure the immutability of the token metadata). There was a few-month p
+A perfect example of this was back in 2022 when a vulnerability was identified in the BAYC contract that would allow the contract owner to mint an arbitrary amount of new BAYC tokens. Of course, this created a wave of FUD calling upon Yuga to "burn" contract ownership, which they eventually did (an successfully spun it to ensure the immutability of the token metadata).
 
 ![vault](/images/article5/Vaulted-functions.png "400, 400")
 
-eriod of hesitance to perform the contract burn from the founders because contract ownership is pretty useful. One benefit of being the #1 NFT company is that you can be sure you'll be given special treatment if an issue arises or a dispute occurs. However, other smaller aren’t afforded this privilege and can't take the same leap that Yuga did by burning their contract ownership. If BAYC had lockable functions, they could have easily just "flipped a switch" and maintained contract ownership. Lockable functions are displayed on the Augminted Scientists contract and all the other KaijuKingz P2E contracts, linked at the bottom of the article.
+ There was a few-month period of hesitance to perform the contract burn from the founders because contract ownership is pretty useful. One benefit of being the #1 NFT company is that you can be sure you'll be given special treatment if an issue arises or a dispute occurs. However, other smaller aren’t afforded this privilege and can't take the same leap that Yuga did by burning their contract ownership. If BAYC had lockable functions, they could have easily just "flipped a switch" and maintained contract ownership. Lockable functions are displayed on the Augminted Scientists contract and all the other KaijuKingz P2E contracts, linked at the bottom of the article.
 
 
 ##  Scam of the week
