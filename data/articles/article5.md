@@ -15,7 +15,9 @@ A perfect example of this was back in 2022 when a vulnerability was identified i
 
 ![vault](/images/article5/Vaulted-functions.png "400, 400")
 
- There was a few-month period of hesitance to perform the contract burn from the founders because contract ownership is pretty useful. One benefit of being the #1 NFT company is that you can be sure you'll be given special treatment if an issue arises or a dispute occurs. However, other smaller aren’t afforded this privilege and can't take the same leap that Yuga did by burning their contract ownership. If BAYC had lockable functions, they could have easily just "flipped a switch" and maintained contract ownership. Lockable functions are displayed on the Augminted Scientists contract and all the other KaijuKingz P2E contracts, linked at the bottom of the article.
+ There was a few-month period of hesitance to perform the contract burn from the founders because contract ownership is pretty useful. One benefit of being the #1 NFT company is that you can be sure you'll be given special treatment if an issue arises or a dispute occurs. However, other smaller founders aren’t afforded this privilege and can't take the same leap that Yuga did by burning their contract ownership. If BAYC had lockable functions, they could have easily just "flipped a switch" and maintained contract ownership. Lockable functions are displayed on the Augminted Scientists contract and all the other KaijuKingz P2E contracts, linked at the bottom of the article.
+
+
 
 
 ##  Scam of the week
@@ -53,6 +55,9 @@ When we started the KaijuDex, we never expected to receive the community support
 
 #### Links
 [KaijuDex Mega Thread](https://twitter.com/Walt_eng/status/1661175124928675841?s=20)
+
+[Augminted Labs Code](https://etherscan.io/address/0xa310425046661c523d98344f7e9d66b32195365d#code)
+
 #### Editors
 **Twitter**: [Walt_eng](https://twitter.com/Walt_eng)
 
