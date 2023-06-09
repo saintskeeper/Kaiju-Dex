@@ -29,6 +29,10 @@ const markdownContent5 = `
 Tech, funnies, and updates
 `;
 
+const markdownContent6 = `
+### Bring your PFP to life
+`;
+
 
 function ArticleComponent(props: any) {
   return (
@@ -65,10 +69,15 @@ const Home: NextPage = () => {
   return (
     <div className="flex space-x-10">
       <ArticleComponent
+        image={"/images/article6/Midjourney-how-to/final-chimp.jpeg "}
+        link={"/news/articles/article6"}
+        data={markdownContent6}
+        new
+      />
+      <ArticleComponent
         image={"/images/article5/walt-_cute_girl_with_cat_ear_hoody_sitting_on_the_shoulder_of_b_5215a903-5169-40f7-9137-a12aa69f36cf.png"}
         link={"/news/articles/article5"}
         data={markdownContent5}
-        new
       />
         <ArticleComponent
         image={"/images/article4/L3-in-Subway.png"}
