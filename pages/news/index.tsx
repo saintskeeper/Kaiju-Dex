@@ -69,7 +69,7 @@ const Home: NextPage = () => {
   return (
     <div className="flex space-x-10">
       <ArticleComponent
-        image={"/images/article6/Midjourney-how-to/final-chimp.jpeg "}
+        image={"/images/article6/Midjourney-how-to/final-chimp.jpeg"}
         link={"/news/articles/article6"}
         data={markdownContent6}
         new
