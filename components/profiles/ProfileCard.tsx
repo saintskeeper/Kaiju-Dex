@@ -50,7 +50,9 @@ const ProfileCard: FC<ProfileCardProps> = ({
           />
           <div className="py-2 space-y-5 flex flex-col relative">
             <div className="flex place-items-center space-x-3">
-              <p className="text-3xl font-bold tracking-wider">{username}</p>
+              <p className="text-3xl font-bold tracking-wider text-black dark:text-white">
+                {username}
+              </p>
             </div>
             <div className="flex space-x-3">
               <Link
@@ -62,7 +64,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
               </Link>
               <Link
                 href={twitterUrl}
-                className="flex space-x-2 outline outline-1 outline-zinc-800 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
+                className="flex space-x-2 outline outline-1 outline-zinc-500 bg-zinc-700 place-items-center rounded-lg py-1 px-2 place-content-center hover:invert duration-200"
               >
                 <Twitter className="w-3 h-3" />
                 <p>Twitter</p>
@@ -82,11 +84,13 @@ const ProfileCard: FC<ProfileCardProps> = ({
       </div>
       <div>
         <div className="rounded-lg space-y-4">
-          <h1 className="text-2xl font-bold">What I Offer:</h1>
+          <h1 className="text-2xl font-bold text-black dark:text-white">
+            What I Offer:
+          </h1>
           <p className="text-md text-gray-400 tracking-wide">{offer}</p>
           <div className="flex space-x-2 ">
-            <Crown className="w-5" />
-            <p className="text-md text-gray-200 tracking-wider">
+            <Crown className="w-5 fill-black dark:fill-white" />
+            <p className="text-md text-black dark:text-gray-200 tracking-wider">
               {memberSince}
             </p>
           </div>

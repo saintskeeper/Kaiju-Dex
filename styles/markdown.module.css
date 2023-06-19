@@ -15,6 +15,8 @@
   margin-top: 2rem;
   margin-bottom: 0.8rem;
   color: white;
+  text-align: center;
+  border-bottom: 3px solid white;
 }
 
 .markdown h2 {
@@ -22,6 +24,8 @@
   margin-top: 2rem;
   margin-bottom: 0.8rem;
   color: white;
+  text-align: center;
+  border-bottom: 2px solid white;
 }
 
 .markdown h3 {
@@ -29,13 +33,13 @@
   margin-top: 2rem;
   margin-bottom: 0.8rem;
   color: white;
+  text-align: center;
 }
 
 .markdown h4 {
   font-size: 0.8rem; /* 2 * 1rem (default h4 size) */
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: white;
 }
 
 .markdown h5 {
@@ -50,6 +54,7 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: white;
+  text-align: center;
 }
 .markdown p {
   margin-top: 1rem;
@@ -84,6 +89,7 @@
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   padding: 0.2em 0.4em;
+  color: black;
 }
 
 .markdown a {

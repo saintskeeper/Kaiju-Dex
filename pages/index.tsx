@@ -24,7 +24,9 @@ const Home: NextPage = () => {
           }}
           className=""
         >
-          <h1 className="text-[5rem] font-bold">KAIJUDEX </h1>
+          <h1 className="text-[5rem] font-bold text-black dark:text-white">
+            KAIJUDEX{" "}
+          </h1>
           <p className="text-zinc-500 md:w-1/2">
             Connect with like-minded creatives, discover exciting new gigs, and
             level up your career. Whether you&apos;re an artist or engineer,

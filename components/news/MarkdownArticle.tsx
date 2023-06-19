@@ -9,13 +9,9 @@ import styles from "../../styles/markdown.module.css";
 import parseMarkdownImages from "../../lib/Markdown/parseMarkdownImages";
 import Image from "next/image";
 
-
-
 interface MarkdownArticleProps {
   markdown: string;
 }
-
-
 
 const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
   const [content, setContent] = useState<React.ReactNode>(null);
@@ -27,8 +23,8 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
         img: (props) => {
           // Extract width and height from the title attribute
           const [width, height] = props.title
-          // @ts-ignore
-            ? props.title.split(",").map((size) => parseInt(size.trim()))
+            ? // @ts-ignore
+              props.title.split(",").map((size) => parseInt(size.trim()))
             : [undefined, undefined];
 
           return (
