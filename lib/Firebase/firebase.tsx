@@ -1,4 +1,5 @@
 import { initializeApp, getApps } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -14,6 +15,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 
+// Initialize Firestore
+const db = getFirestore(app);
+
 // Initialize analytics only if in browser environment and supported
 async function initializeFirebaseAnalytics() {
   if (typeof window !== "undefined") {
@@ -28,5 +32,5 @@ async function initializeFirebaseAnalytics() {
 
 const analytics = initializeFirebaseAnalytics();
 
-// Export analytics
-export { analytics };
+// Export Firestore database and analytics
+export { db, analytics };

@@ -11,9 +11,8 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
 import "@rainbow-me/rainbowkit/styles.css";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-import { News, Paperclip, SearchAlt } from "styled-icons/boxicons-regular";
+import { News, Paperclip, Brain } from "styled-icons/boxicons-regular";
 import {
   CatchingPokemon,
   DocumentScanner,
@@ -122,6 +121,15 @@ function MyApp({ Component, pageProps }: AppProps) {
                       >
                         <Paperclip className="w-9 fill-zinc-400" />
                         <div className="text-zinc-400">Docs</div>
+                      </Link>
+                    </div>
+                    <div className="p-5 active:bg-[#6544c9] hover:bg-[#393D45] cursor-pointer duration-150 rounded-2xl w-full hover:shadow-xl">
+                      <Link
+                        href={"/intrinsic"}
+                        className="flex space-x-4 place-items-center place-content-left"
+                      >
+                        <Brain  className="w-9 fill-zinc-400" />
+                        <div className="text-zinc-400">Intrinsic</div>
                       </Link>
                     </div>
                   </div>
