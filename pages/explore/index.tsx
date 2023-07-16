@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import Image from "next/image";
-import { RightArrow } from "styled-icons/boxicons-solid";
 
 function FeatureModal(props: any) {
   return (
@@ -57,18 +55,6 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="h-full bg-zinc-600 w-[1px] ml-10" />
-        <FeatureModal title="432 results found">
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-          <Profile />
-        </FeatureModal>
       </div>
     </div>
   );

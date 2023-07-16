@@ -1,3 +1,8 @@
+---
+title: "Bring Your PFP to Life"
+description: "Bring Your PFP to Life"
+date: "2023-07-15"
+---
 # Bring Your PFP to Life
 With everything going on in the crypto space  the Dex team wants to make sure the community  has quality tutorial for leveling up your generative art game to create more engaging Twitter content.This week the KaijuDex team is excited to present a tutorial on leveraging Midjourney to bring your PFP to life, Funny sections by *Hokin*, and *Walt’s* Corner.
 

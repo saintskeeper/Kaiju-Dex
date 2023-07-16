@@ -1,4 +1,10 @@
-# Dawn of the Augmented Era:
+---
+title: "Dawn of the Augmented Era"
+description: "Dawn of the Augmented Era"
+date: "2023-05-15"
+---
+
+# Dawn of the Augmented Era
 
 ![l3-insubway](/images/article4/L3-in-Subway.png "600, 600")
 

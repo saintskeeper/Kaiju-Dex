@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import type { NextPage } from "next";
 import MarkdownArticle from "../../../components/news/MarkdownArticle";
+import { generateRSSFeed } from "../../../lib/utilities/rss";
 
 interface ArticlePageProps {
   markdownContent: string;
@@ -18,6 +19,9 @@ const ArticlePage: NextPage<ArticlePageProps> = ({ markdownContent }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const rss = generateRSSFeed();
+  fs.writeFileSync('./public/rss.xml', rss);
+
   const { slug } = context.params as { slug: string };
   const filePath = path.join(process.cwd(), "data", "articles", `${slug}.md`);
   const markdownContent = fs.readFileSync(filePath, "utf8");

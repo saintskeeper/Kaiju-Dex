@@ -1,3 +1,8 @@
+---
+title: "Season 3 out of this world!"
+description: Season 3 out of this world!"
+date: "2023-04-15"
+---
 # Season 3 out of this world!
 ![starfox](/images/article3/cute-space-kaiju.png "400, 400")
 # Augminted Labs Features the KaijuDex

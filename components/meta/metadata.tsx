@@ -5,6 +5,8 @@ const Metadata = () => {
     <Head>
       <title>KaijuDex</title>
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed for Your Site's Title" />
+
 
       {/* Basic meta tags */}
       <meta
