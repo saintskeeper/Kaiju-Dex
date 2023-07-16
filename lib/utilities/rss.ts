@@ -2,8 +2,19 @@ import RSS from 'rss';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter'; // you need to install this package
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkHtml from 'remark-html';
 
-export function generateRSSFeed() {
+async function markdownToHtml(markdown: string) {
+  const result = await unified()
+    .use(remarkParse)
+    .use(remarkHtml)
+    .process(markdown);
+  return result.toString();
+}
+
+export async function generateRSSFeed() {
   const feed = new RSS({
     title: "KaijuDex News",
     description: "Description for your site",
@@ -20,12 +31,14 @@ export function generateRSSFeed() {
     const filePath = path.join(articleDirectory, `${slug}.md`);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
+    
+    const htmlContent = await markdownToHtml(content);
 
     feed.item({
       title: data.title,
       guid: `https://kaijudex.app/news/articles/${slug}`,
       url: `https://kaijudex.app/news/articles/${slug}`,
-      description: content,
+      description: htmlContent,
       date: data.date ? new Date(data.date) : new Date(),
     });
   }
