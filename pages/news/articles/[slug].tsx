@@ -19,7 +19,7 @@ const ArticlePage: NextPage<ArticlePageProps> = ({ markdownContent }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const rss = generateRSSFeed();
+  const rss = await generateRSSFeed();
   fs.writeFileSync('./public/rss.xml', rss);
 
   const { slug } = context.params as { slug: string };
