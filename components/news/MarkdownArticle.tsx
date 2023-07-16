@@ -1,4 +1,3 @@
-// components/MarkdownArticle.tsx
 import React, { useEffect, useState } from "react";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
@@ -8,14 +7,11 @@ import rehype2react from "rehype-react";
 import styles from "../../styles/markdown.module.css";
 import parseMarkdownImages from "../../lib/Markdown/parseMarkdownImages";
 import Image from "next/image";
-
-
+import matter from 'gray-matter';
 
 interface MarkdownArticleProps {
   markdown: string;
 }
-
-
 
 const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
   const [content, setContent] = useState<React.ReactNode>(null);
@@ -23,11 +19,8 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
   useEffect(() => {
     (async () => {
       const components = {
-        // @ts-ignore
-        img: (props) => {
-          // Extract width and height from the title attribute
+        img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
           const [width, height] = props.title
-          // @ts-ignore
             ? props.title.split(",").map((size) => parseInt(size.trim()))
             : [undefined, undefined];
 
@@ -48,10 +41,10 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
                 }}
               >
                 <Image
-                  src={props.src}
-                  alt={props.alt}
-                  fill
-                  style={{ objectFit: "contain" }}
+                  src={props.src || ''}
+                  alt={props.alt || ''}
+                  layout="fill"
+                  objectFit="contain"
                 />
               </div>
             </div>
@@ -62,12 +55,14 @@ const MarkdownArticle: React.FC<MarkdownArticleProps> = ({ markdown }) => {
       const processor = unified()
         .use(remarkParse)
         .use(parseMarkdownImages)
-        // @ts-ignore
+         // @ts-ignore
         .use(remarkRehype)
         .use(rehypeSanitize)
         .use(rehype2react, { createElement: React.createElement, components });
 
-      const file = await processor.process(markdown);
+      const { content: markdownContent } = matter(markdown);
+      const file = await processor.process(markdownContent);
+      
       setContent(file.result as React.ReactNode);
     })();
   }, [markdown]);
