@@ -1,3 +1,8 @@
+---
+title: "The Kaiju Renaissance"
+description: "The Kaiju Renaissance"
+date: "2023-04-15"
+---
 # The Kaiju Renaissance
 
 ![The Kaiju Renaissance ](/images/article2/kaijudex-mini-kaiju.png "600, 600")

@@ -67,7 +67,7 @@ function ArticleComponent(props: any) {
 
 const Home: NextPage = () => {
   return (
-    <div className="flex space-x-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-10">
       <ArticleComponent
         image={"/images/article6/Midjourney-how-to/final-chimp.jpeg"}
         link={"/news/articles/article6"}

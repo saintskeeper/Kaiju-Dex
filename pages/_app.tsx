@@ -11,7 +11,6 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
 import "@rainbow-me/rainbowkit/styles.css";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import { News, Paperclip, SearchAlt } from "styled-icons/boxicons-regular";
 import {

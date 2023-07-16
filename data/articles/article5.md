@@ -1,3 +1,8 @@
+---
+title: "Future of the KaijuDex"
+description: "Future of the KaijuDex"
+date: "2023-07-15"
+---
 # Future of the KaijuDex
 
 ![walt-vibe-girl](/images/article5/walt-_cute_girl_with_cat_ear_hoody_sitting_on_the_shoulder_of_b_5215a903-5169-40f7-9137-a12aa69f36cf.png "600, 600")
